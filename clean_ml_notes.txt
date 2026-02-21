@@ -1,0 +1,3760 @@
+MachinLearning
+Week 1: Class 1
+Introduction to MachinLearning
+Definitions, Scope, and Applications
+Introduction
+Prashanna Rajbhandari
+MachinLearning Researcher
+MobilApplication Engineer
+Full Stack Developer
+Current Role
+Co-Founder and CTO
+SynapsTechnologies Pvt. Ltd.
+Contact
+Unit Learning Outcomes
+By thend of this unit, students will bablto:
+LO . sue
+CodLearning OutcomDescription
+LO1 Analysththeoretical foundation of machinlearning to determinhow an
+intelligent machinworks
+Lo2 Investigatthmost popular and efficient machinlearning algorithms used in
+industry
+103 Develop a machinlearning application using an appropriatprogramming language
+or machinlearning tool for solving a real-world problem
+Lo4 Evaluatthoutcomor result of thapplication to determintheffectiveness of
+thlearning algorithm used
+What Is MachinLearning?
+MachinLearning is a subfield of Artificial Intelligencthat focuses on building systems that
+can:
+Learn from historical data
+Identify patterns and relationships
+Improvperformancover time
+Makpredictions or decisions without explicit programming
+A machinlearning system adapts its internal parameters based on experience.
+MachinLearning vs Traditional Programming
+Traditional Programming
+MachinLearning
+Explicit rules written by humans
+Rules inferred automatically
+Logic-driven
+Data-driven
+Static behavior
+Adaptivbehavior
+Difficult to scale
+Improves with mordata
+Why MachinLearning Matters
+Machinlearning has becomessential duto:
+Massivgrowth of digital data
+Availability of low-cost computing power
+Need for intelligent automation
+Demand for predictivand personalized systems
+Many problems today artoo complex to bsolved using fixed rules.
+Scopof MachinLearning
+Machinlearning is applicablacross a widrangof industries:
+Healthcare: diagnosis, medical imaging, drug discovery
+Finance: fraud detection, credit scoring, algorithmic trading
+Education: personalized learning, grading automation
+Transportation: self-driving vehicles, traffic prediction
+Law and Governance: document analysis, legal research
+Agriculture: crop yield prediction, diseasdetection
+Real-World Applications
+Examples of machinlearning systems in everyday life:
+Recommendation engines (Netflix, YouTube, Spotify)
+Spam and phishing detection
+Facrecognition and biometric authentication
+Voicrecognition and languagtranslation
+Chatbots and virtual assistants
+Types of MachinLearning (Overview)
+Supervised Learning
+Uses labeled data
+Tasks includclassification and regression
+Example: email spam detection
+Unsupervised Learning
+Uses unlabeled data
+Finds hidden patterns or structures
+Example: customer segmentation
+Reinforcement Learning
+Learns through rewards and penalties
+Used in control and decision-making systems
+Example: game-playing agents, robotics
+Common MachinLearning Tasks
+Classification
+Regression
+Clustering
+Anomaly Detection
+Recommendation
+Each task requires different algorithms and evaluation techniques.
+MachinLearning Workflow
+A typical machinlearning pipelinincludes:
+. Problem Definition
+. Data Collection
+. Data Cleaning and Preprocessing
+. FeaturEngineering
+. Model Selection and Training
+. Model Evaluation
+N AO wm BP WD
+. Deployment and Monitoring
+This workflow will bfollowed throughout thunit.
+Tools and Languages Used in MachinLearning
+Common tools and technologies include:
+Programming Languages: Python, R
+Libraries: NumPy, Pandas, Scikit-learn
+Deep Learning Frameworks: TensorFlow, PyTorch
+Visualization Tools: Matplotlib, Seaborn
+Platforms: Jupyter Notebook, GooglColab
+Class Summary
+Understanding theoretical foundations of ML
+Gaining exposurto industry-relevant algorithms
+Quick Overview of Types of ML
+Understanding ML Pipeline
+How This Unit Will BTaught
+Concept-focused lectures
+Practical demonstrations
+Hands-on labs and coding exercises
+Next Class
+CorTerminologies - Features, Labels, Models, Training vs Testing
+MachinLearning
+Week 1: Class 2
+CorTerminologies
+Features, Labels, Models, Training vs Testing
+Class Objective
+Understand key machinlearning terminologies
+Identify features and labels in a dataset
+Explain what a model is
+Distinguish between training and testing phases
+Why Terminology Matters
+Machinlearning relies heavily on precisterminology.
+Understanding corterms helps you:
+Read ML papers and documentation
+Communicateffectively with teams
+Design correct ML pipelines
+Avoid common beginner mistakes
+What Is Data in MachinLearning?
+In machinlearning, data is thfoundation.
+Data typically consists of:
+Inputs (features)
+Outputs (labels)
+Examples (rows or records)
+Thquality of data directly impacts model performance.
+Features
+What ArFeatures?
+Features arindividual measurablproperties or characteristics of data.
+They represent thinputs given to a machinlearning model.
+Examples of Features
+Problem Features
+Houspricprediction | Area, number of rooms, location
+Email spam detection | Word frequency, sender, subject
+Student performanc| Attendance, assignment scores
+Features arusually represented as columns in a dataset.
+FeaturTypes (High-Level)
+Common featurtypes include:
+Numerical (age, salary, marks)
+Categorical (gender, city, product type)
+Binary (yes/no, true/false)
+Text and image-based features
+Featurselection is a critical ML step.
+Labels
+What ArLabels?
+Labels arthoutcomes or target values thmodel is trying to predict.
+They represent thcorrect answer for supervised learning.
+Examples of Labels
+Problem Label
+Houspricprediction | Housprice
+Email classification Spam or Not Spam
+Diseasdetection Diseaspresent or not
+Labels arusually thfinal column in a dataset.
+Features vs Labels
+Features
+Input variables Output variable
+Given to model Predicted by model
+Independent Dependent
+Multiplper dataset | Usually one
+Understanding this distinction is essential.
+What Is a Model?
+A machinlearning model is a mathematical representation that:
+Learns patterns from data
+Maps features to labels
+Makes predictions on new data
+Thmodel contains learned parameters.
+Examples of Models
+Common machinlearning models include:
+Linear Regression
+Decision Trees
+k-Nearest Neighbors
+Support Vector Machines
+Neural Networks
+Different problems requirdifferent models.
+Training a Model
+What Is Training?
+Training is thprocess whera model:
+Learns from historical data
+Adjusts internal parameters
+Minimizes prediction error
+Training uses labeled data.
+Training Data
+Training data:
+Is thlargest portion of thdataset
+Contains both features and labels
+Is used to teach thmodel patterns
+Typically 70-80% of data is used for training.
+Testing a Model
+What Is Testing?
+Testing evaluates how well thmodel performs on unseen data.
+Thmodel does not learn during testing.
+Testing Data
+Testing data:
+Is kept separatfrom training data
+Contains known labels
+Measures model accuracy and reliability
+Typically 20-30% of data is used for testing.
+Training vs Testing
+Training Testing
+Model learns Model evaluates
+Uses majority of data | Uses held-out data
+Adjusts parameters | No parameter updates
+Risk of overfitting | Checks generalization
+Why Split Data?
+Data is split to:
+Prevent memorization
+Measurreal-world performance
+Detect overfitting
+Ensurfairness in evaluation
+Without splitting, results armisleading.
+Overfitting (Concept Preview)
+Overfitting occurs when:
+Model performs very well on training data
+Model performs poorly on testing data
+This will bcovered in detail in later classes.
+Class Summary
+Features arinput variables
+Labels artarget outputs
+Models learn patterns from data
+Training teaches thmodel
+Testing evaluates performance
+Next Class
+Types of Learning Problems - Classification
+MachinLearning
+Week 1: Class 3
+Types of Learning Problems
+Classification
+Class Objective
+By thend of this class, students will bablto:
+Understand what a classification problem is
+Identify classification tasks in real-world scenarios
+Distinguish classification from regression
+Recognizcommon classification algorithms
+Types of Learning Problems
+In supervised machinlearning, problems arcommonly divided into:
+Classification
+Regression
+This class focuses on classification.
+What Is Classification?
+Classification is a supervised learning problem where:
+Thoutput (label) belongs to a finitset of categories
+Thmodel predicts a class rather than a number
+Thgoal is to assign thcorrect label to new data.
+Key Characteristics of Classification
+Classification problems typically involve:
+Labeled training data
+Discretoutput values
+Decision boundaries between classes
+Examples includbinary and multi-class problems.
+Binary Classification
+Binary classification involves two possiblclasses.
+Examples:
+Spam or Not Spam
+Fraud or Not Fraud
+Pass or Fail
+Diseasor No Disease
+This is thsimplest form of classification.
+Multi-Class Classification
+Multi-class classification involves morthan two classes.
+Examples:
+Handwritten digit recognition (0-9)
+News articlcategorization
+Student gradclassification (A, B, C, D, F)
+Each data point belongs to exactly onclass.
+Examples of Classification Problems
+Problem Domain Classification Task
+Email systems Spam detection
+FinancLoan approval
+HealthcarDiseasdiagnosis
+Education Student performanccategory
+Security Facrecognition
+Classification vs Regression
+Classification Regression
+Predicts categories Predicts continuous values
+Discretoutput Numerical output
+Example: Spam/Not Spam | Example: Housprice
+Understanding this distinction is critical.
+Common Classification Algorithms
+Somwidely used classification algorithms:
+Logistic Regression
+k-Nearest Neighbors (k-NN)
+Decision Trees
+Support Vector Machines (SVM)
+NaivBayes
+Neural Networks
+Algorithm choicdepends on thproblem and data.
+Logistic Regression
+What It Is
+Asimpland widely used classification algorithm
+Used for predicting two possibloutcomes
+How It Works
+Combines input features using weights
+Outputs a probability between 0 and 1
+Uses a threshold to decidthclass
+When to Use
+When thoutcomhas two classes
+Predicting Pass / Fail
+Email Spam / Not Spam
+k-Nearest Neighbors (k-NN)
+What It Is
+Aclassification algorithm based on similarity
+Does not build a model in advance
+How It Works
+Looks at thk closest data points
+Assigns thmost common class among them
+When to Use
+When thdataset is small
+When similar data points usually belong to thsamclass
+Classifying students based on marks and attendance
+Recommending items based on similar users
+Decision Trees
+What It Is
+Atree-shaped model that uses decision rules
+Very easy to understand and explain
+How It Works
+Splits data using questions
+Each split reduces uncertainty
+Final decision is madat leaf nodes
+When to Use
+When decisions must bclearly explained
+When rules matter morthan accuracy
+Loan approval based on incomand credit score
+Student eligibility decisions
+Support Vector Machines (SVM)
+What It Is
+A powerful classification algorithm
+Works well with complex data
+How It Works
+Finds thbest boundary separating classes
+Maximizes thdistancbetween classes
+When to Use
+When data has many features
+When classes arclearly separable
+Facrecognition
+Handwritten character recognition
+NaivBayes
+What It Is
+A probability-based classification algorithm
+Assumes features arindependent
+How It Works
+Calculates probability for each class
+Selects thclass with thhighest probability
+When to Use
+When dealing with text data
+When fast training is needed
+Email spam filtering
+Sentiment analysis of reviews
+Neural Networks
+What It Is
+A flexibland powerful learning model
+Inspired by how thhuman brain works
+How It Works
+Data flows through multipllayers
+Learns complex patterns automatically
+When to Use
+When thproblem is complex
+When largamounts of data aravailable
+Imagrecognition
+Voicassistants and chatbots
+Algorithm Selection (Beginner View)
+Problem TypSuggested Algorithm
+Simplbinary decision Logistic Regression
+Small, similarity-based data | k-NN
+Rule-based decisions Decision Trees
+High-dimensional data SVM
+Text classification NaivBayes
+Images or speech Neural Networks
+Key Takeaway
+Start with simplmodels
+Choosalgorithms based on:
+°o Data size
+oc Problem complexity
+o Need for explanation
+Moradvanced models will bexplored later.
+Classification Output
+Classification models may output:
+A predicted class label
+Probabilities for each class
+Example:
+Spam (0.92)
+Not Spam (0.08)
+Decision Boundary (Conceptual)
+A decision boundary separates different classes.
+Learned during training
+Depends on features and model
+Can blinear or non-linear
+Wwill visualizdecision boundaries in later labs.
+Evaluating Classification Models
+Common evaluation metrics include:
+Accuracy
+Precision
+Recall
+Fi-score
+Confusion Matrix
+Proper evaluation ensures model reliability.
+Classification Workflow
+1. Definthclassification problem
+2. Collect and label data
+3. Select features
+4. Split data (training/testing)
+5. Train classification model
+6. Evaluatperformance
+This mirrors thgeneral ML pipeline.
+Real-World Considerations
+When solving classification problems:
+Data may bimbalanced
+Misclassification costs vary
+Accuracy alonmay bmisleading
+Thesissues will baddressed in futurclasses.
+Class Summary
+Classification predicts categorical outputs
+Can bbinary or multi-class
+Uses labeled data
+Requires appropriatevaluation metrics
+Widely used in real-world applications
+Next Class
+Types of Learning Problems - Regression
+MachinLearning
+Week 1: Class 4
+Types of Learning Problems
+Regression
+Class Objective
+By thend of this class, students will bablto:
+Understand what a regression problem is
+Identify real-world regression tasks
+Distinguish regression from classification
+Recognizcommon regression algorithms
+Types of Learning Problems
+In supervised machinlearning, common problem types include:
+Classification
+Regression
+This class focuses on regression.
+What Is Regression?
+Regression is a supervised learning problem where:
+Thoutput (label) is a continuous numerical value
+Thmodel predicts quantities rather than categories
+Thgoal is to estimatan accuratnumeric outcome.
+Key Characteristics of Regression
+Regression problems typically involve:
+Labeled training data
+Continuous output values
+Error measured as distancfrom truvalue
+Examples includprice, score, or demand prediction.
+Examples of Regression Problems
+Problem Domain Regression Task
+Real estatHouspricprediction
+FinancStock pricforecasting
+Education Student scorprediction
+HealthcarBlood pressurestimation
+Weather Temperaturprediction
+Regression vs Classification
+Regression Classification
+Predicts numerical values | Predicts categories
+Continuous output Discretoutput
+Example: HouspricExample: Spam detection
+Understanding this distinction is essential.
+Simplvs MultiplRegression
+SimplRegression
+Uses oninput feature
+Example: Pricvs area
+MultiplRegression
+Uses multiplinput features
+Example: Pricvs area, location, rooms
+Linear Regression (Concept Overview)
+Linear regression models:
+A linear relationship between inputs and output
+A straight-linfit to thdata
+It is onof thmost widely used regression techniques.
+Non-Linear Regression (Concept Overview)
+Non-linear regression models:
+Complex relationships
+Curved or irregular patterns
+Real-world data behavior
+Often handled using advanced models.
+Common Regression Algorithms
+Popular regression algorithms include:
+Linear Regression
+Polynomial Regression
+Ridgand Lasso Regression
+Decision TreRegression
+Random Forest Regression
+Neural Networks
+Linear Regression
+What It Is
+Thsimplest and most commonly used regression algorithm
+Models a straight-linrelationship between inputs and output
+How It Works
+Fits a straight linthat best represents thdata
+Minimizes thdifferencbetween predicted and actual values
+When to Use
+When threlationship is roughly linear
+When you want a simpland interpretablmodel
+Predicting houspricbased on area
+Estimating salary based on years of experience
+Polynomial Regression
+What It Is
+An extension of linear regression
+Can model curved relationships
+How It Works
+Transforms input features into polynomial terms
+Fits a curved lininstead of a straight line
+When to Use
+When data shows a non-linear trend
+When linear regression underfits
+Predicting growth trends over time
+Modeling exam scorvs study hours wherimprovement slows
+Ridgand Lasso Regression
+What They Are
+Regularized versions of linear regression
+Help prevent overfitting
+How They Work
+Penalizlargcoefficients
+Reducmodel complexity
+When to Use
+When therarmany input features
+When features arcorrelated
+Predicting houspricusing many property features
+Financial prediction models with many variables
+Decision TreRegression
+What It Is
+A tree-based regression model
+Uses rules to makpredictions
+How It Works
+Splits data based on featurconditions
+Outputs averagvaluat leaf nodes
+When to Use
+When relationships arnon-linear
+When explanation is important
+Predicting insuranccost based on agand risk factors
+Estimating sales based on season and region
+Random Forest Regression
+What It Is
+An ensemblof multipldecision trees
+Produces morstablpredictions
+How It Works
+Builds many trees on random subsets of data
+Averages predictions from all trees
+When to Use
+When accuracy is morimportant than simplicity
+When data is noisy
+Predicting housprices with many influencing factors
+Demand forecasting for products
+Neural Networks (Regression)
+What It Is
+A powerful and flexiblregression model
+Can learn very complex patterns
+How It Works
+Passes data through multipllayers of neurons
+Adjusts weights to minimizprediction error
+When to Use
+When data is largand complex
+When simpler models fail
+Predicting energy consumption
+Stock prictrend estimation
+Regression Algorithm Comparison (Beginner View)
+Problem TypSuggested Algorithm
+Simpllinear relationship Linear Regression
+Curved trend Polynomial Regression
+Many correlated features Ridg/ Lasso
+Rule-based numeric prediction | Decision TreRegression
+High accuracy needed Random Forest
+Complex patterns, largdata Neural Networks
+Key Takeaway
+Start with simplregression models
+Increascomplexity only when needed
+Algorithm choicdepends on:
+°o Data size
+co Featurcomplexity
+© Interpretability needs
+Understanding regression algorithms builds a strong ML foundation.
+Regression Output
+Regression models produce:
+Asinglnumerical prediction
+Continuous-valued output
+Example:
+Predicted housprice: 7,500,000
+Evaluating Regression Models
+Common evaluation metrics include:
+Mean AbsolutError (MAE)
+Mean Squared Error (MSE)
+Root Mean Squared Error (RMSE)
+R-squared (R?)
+Lower error indicates better performance.
+Regression Workflow
+1. Definthregression problem
+2. Collect and prepardata
+3. Select relevant features
+4. Split data (training/testing)
+5. Train regression model
+6. Evaluatpredictions
+This workflow mirrors general ML practice.
+Real-World Considerations
+When working with regression problems:
+Outliers can distort results
+Data scaling may brequired
+Linear assumptions may not hold
+Theswill baddressed in later sessions.
+Class Summary
+Regression predicts continuous values
+Uses labeled data
+Can blinear or non-linear
+Requires numerical evaluation metrics
+Widely used in prediction tasks
+Next Class
+Types of Learning Problems - Clustering & Optimization
+MachinLearning
+Week 1- Class 5
+Types of Learning Problems
+Clustering & Optimization
+Class Objective
+By thend of this class, students will bablto:
+Understand unsupervised learning concepts
+Explain clustering and its uscases
+Understand optimization in machinlearning
+Identify real-world examples of both
+Types of Learning Problems (Recap)
+So far, whavcovered:
+Classification
+Regression
+This class introduces unsupervised learning and optimization.
+What Is Unsupervised Learning?
+In unsupervised learning:
+Data is unlabeled
+Thsystem discovers patterns automatically
+No predefined output is provided
+Clustering is onof thmost common unsupervised learning tasks.
+What Is Clustering?
+Clustering is a learning problem where:
+Data points argrouped based on similarity
+Similar items arplaced in thsamgroup (cluster)
+No labels argiven beforehand
+Thgoal is to uncover hidden structurin data.
+Key Characteristics of Clustering
+Clustering problems typically involve:
+Unlabeled data
+Similarity or distancmeasures
+Grouping based on patterns
+Clusters arformed based on featursimilarity.
+Examples of Clustering Problems
+Domain Clustering UsCase
+Marketing Customer segmentation
+Education Student behavior grouping
+HealthcarPatient risk profiling
+FinancSpending pattern analysis
+Imagprocessing | Imagsegmentation
+Common Clustering Algorithms
+Popular clustering algorithms include:
+K-Means
+Hierarchical Clustering
+DBSCAN
+Mean Shift
+Each algorithm defines similarity differently.
+K-Means Clustering
+K-Means is a centroid-based clustering algorithm.
+Key ideas:
+Each cluster has a center (centroid)
+Data points belong to thnearest centroid
+Centroids arupdated iteratively
+Characteristics of K-Means
+Fast and efficient for largdatasets
+Works well with spherical clusters
+Sensitivto:
+© Initial centroid selection
+© Outliers
+o Featurscaling
+Requires thvaluof K beforehand.
+Hierarchical Clustering
+Hierarchical clustering builds clusters in a tree-likstructure.
+Produces a dendrogram to visualizclustering.
+Characteristics of Hierarchical Clustering
+Easy to visualizand interpret
+Does not requirK upfront
+Computationally expensive
+Not suitablfor very largdatasets
+Good for exploratory data analysis.
+DBSCAN (Density-Based Clustering)
+DBSCAN groups data based on density.
+Key concepts:
+Densregions form clusters
+Sparsregions arconsidered noise
+Clusters can havarbitrary shapes
+Characteristics of DBSCAN
+Automatically detects number of clusters
+Handles noisand outliers well
+Works with irregular cluster shapes
+Struggles with varying densities
+Widely used in spatial and anomaly detection tasks.
+Mean Shift Clustering
+Mean Shift is a centroid-based but non-parametric algorithm.
+It works by:
+Placing a window around data points
+Shifting thwindow toward densregions
+Converging to cluster centers automatically
+Characteristics of Mean Shift
+No need to specify number of clusters
+Can find arbitrarily shaped clusters
+Computationally expensive
+Sensitivto bandwidth selection
+Often used in imagsegmentation.
+Summary of Clustering Algorithms
+Algorithm Needs K? Handles NoisShape
+K-Means Yes No Spherical
+Hierarchical | No No Tree-based
+DBSCAN No Yes Arbitrary
+Mean Shift | No Limited Arbitrary
+Challenges in Clustering
+Common challenges include:
+Choosing thright number of clusters
+Handling noisand outliers
+Scaling features
+Interpreting cluster meaning
+Clustering results often requirdomain knowledge.
+What Is Optimization?
+Optimization in machinlearning refers to:
+Finding thbest model parameters
+Minimizing error or loss
+Improving model performance
+Optimization drives learning in most ML algorithms.
+Optimization in SimplTerms
+Optimization answers thquestion:
+"How do wmakthmodel as accuratas possible? "
+This is donby:
+Defining a loss function
+Minimizing that loss
+Loss Function (Concept Overview)
+A loss function measures:
+How wrong a model’s prediction is
+Differencbetween predicted and actual values
+Lower loss means better performance.
+Optimization Example
+Example: Houspricprediction
+Model predicts price
+Comparprediction with actual price
+Calculaterror
+Adjust model parameters
+Repeat until error is minimized
+This process is optimization.
+Common Optimization Techniques
+Somcommonly used techniques include:
+Gradient Descent
+Stochastic Gradient Descent (SGD)
+Mini-batch Gradient Descent
+Thesmethods updatparameters iteratively.
+Optimization vs Clustering
+Clustering Optimization
+Groups similar data | Improves model performance
+Unsupervised task | Used across ML tasks
+No labels required | Uses loss functions
+Pattern discovery Error minimization
+Both play critical roles in ML systems.
+Real-World Importance
+Clustering and optimization arused in:
+Recommendation systems
+Customer analytics
+Imagand speech recognition
+Training deep learning models
+They form thbackbonof modern ML pipelines.
+Class Summary
+Clustering groups unlabeled data
+It is a key unsupervised learning task
+Optimization improves model accuracy
+Loss functions guidoptimization
+Both aressential in real-world ML
+Next Class
+Supervised Learning - Concepts and Workflow
+MachinLearning
+Python Basics - Foundations for MachinLearning
+Unit I - Programming Fundamentals
+Class Objective
+By thend of this class, students will bablto:
+Writand run basic Python programs
+Understand variables and data types
+Usarithmetic, comparison, and logical operators
+Perform typconversion and string operations
+Uscommon built-in Python functions
+Practiccoding using Jupyter Notebook / GooglColab
+Why Python for MachinLearning?
+Simpland readablsyntax
+Beginner-friendly language
+Largecosystem of libraries
+Popular Python Libraries for DS
+NumPy
+Pandas
+Matplotlib / Seaborn
+Scikit-learn
+TensorFlow / PyTorch
+Python Basics: First Program
+A Python program can bwritten in just online:
+Checking Your Python Version
+sys
+print( , sys.version)
+Why this is important:
+Libraries may requirspecific versions
+Helps debug compatibility issues
+Variables in Python
+Variables stordata values:
+nam= "Sita"
+ag= 21
+gpa = 3.75
+is_ student = True
+Python automatically assigns data types
+No need for explicit typdeclaration
+VariablNaming Rules
+Start with a letter or underscore
+Case-sensitiv(ag# Age)
+Cannot usPython keywords
+Usdescriptivnames
+~ Invalid:
+2nam= "Ram"
+class = "DS"
+Valid:
+student_nam= "Ram"
+total_marks = 85
+Python Data Types (Primitive)
+Data TypExample
+int 42
+float 3.14
+str "Hello"
+bool True, False
+NoneTypNone
+Checking Data Types
+ag= 25
+print(type(age))
+Output
+<class >
+Python Arithmetic Operators
+Addition (+)
+Subtraction (-)
+Multiplication (*)
+Division (/)
+Floor Division (//)
+Modulus (%)
+Exponentiation (**)
+Arithmetic Operator Examples
+print(a + b)
+print(a / b)
+print(a // b)
+print(a % b)
+print(a ** b)
+Comparison Operators
+Used to comparvalues:
+== equal
+'= not equal
+@<,>,<=,>=
+print(x == y)
+print(x < y)
+Logical Operators
+Used to combinconditions:
+and
+eor
+not
+print((x != y) (x < y))
+TypConversion
+Convert data from ontypto another:
+ag= int("25")
+pric= float("19.99")
+scor= str(95)
+Why needed:
+User input is usually string
+ML models need numeric data
+String Operations
+Concatenation
+first_nam=
+last_nam=
+full_nam= first_nam+ + last_name
+print(full_name)
+f-Strings (Recommended)
+messag=
+print(message)
+String Indexing
+word =
+print(word[-1])
+. Index starts at @
+. Negativindex counts from end
+Built-in Python Functions
+Common functions:
+print()
+type()
+len()
+abs()
+round()
+max()
+min()
+print(type(42))
+print(len( ))
+print(round( ))
+Hands-On Exercis#1
+Tasks:
+Print a welcommessage
+Creatvariables (name, age, GPA)
+Perform arithmetic operations
+Practictypconversion
+Hands-On Exercis#2
+Tasks:
+Writboolean expressions
+Perform string operations
+Usf-strings
+Apply built-in functions
+Common Beginner Mistakes
+- Indentation errors
+_ Mixing data types
+"Age: "+ 21 # Error
+_ Using keywords as variables
+- Cassensitivity issues
+KnowledgCheck
+List threstages of MachinLearning workflow
+NamthrePython libraries for MachinLearning
+What is thdata typof 3.14?
+What does // operator do?
+Convert "100" into an integer
+Next Class
+Python Programming Basics & Operators
+(Control Flow, Conditions, Loops)
+MachinLearning
+Python Programming Basics & Operators
+Control Flow - Conditions - Loops
+Class Objective
+By thend of this class, students will bablto:
+Understand how programs makdecisions
+Usconditional statements (Fj, Bikta, BES)
+Implement repetition using and loops
+* Control loop execution using and
+Combinconditions and loops to solvreal problems
+Why Control Flow Matters
+Without control flow, programs:
+Run linby linonly once
+Cannot makdecisions
+Cannot repeat tasks
+Control flow allows programs to:
+Choosdifferent paths
+React to data
+Automatrepetitivwork
+This is fundamental to machinlearning pipelines.
+Control Flow in Python
+Python provides:
+Conditional statements — decision making
+Loops > repetition
+Loop controls — precisexecution control
+Thesstructures definprogram logic.
+Conditional Statements — Overview
+Conditional statements executcodonly if a condition is true.
+Python keywords:
+Delif
+i False
+if Statement
+Syntax:
+condition:
+Example:
+if-elsStatement
+Syntax:
+if condition:
+else:
+Example:
+marks =
+if marks >=
+print("Pass")
+else:
+print("Fail")
+if-elif-elsStatement
+Used when multiplconditions exist.
+Example:
+scor=
+if scor>=
+print("Excellent")
+elif scor>= :
+print("Good")
+elif scor>=
+print("Pass")
+else:
+print("Fail")
+Only onblock executes.
+Conditions & Comparison Operators
+|==| Equal
+|t=| Not equal
+Less than
+Greater than
+<= Less than or equal
+>= Greater than or equal
+Example:
+y =
+print(x < y)
+Logical Operators in Conditions
+Operator Meaning
+land] Both conditions true
+At least ontrue
+not Reverscondition
+Example:
+ag= 25
+ag>= 18 ag< 60:
+print("Working aggroup")
+Common Conditional Mistakes
+Using Bj instead of
+* Forgetting colon
+Incorrect indentation
+Overly complex nested conditions
+Tip: keep conditions simpland readable.
+Loops — Why WNeed Them
+Loops arused to:
+Repeat tasks
+Process lists and datasets
+Train models over multipliterations
+Python supports:
+° loop
++ [EEEEY loop
+for Loop
+Used to iteratover sequences.
+Syntax:
+variablsequence:
+Example:
+i range(1, 6):
+print(i)
+Output:
+12345
+for Loop with List
+fruits = [
+fruit fruits:
+print(fruit)
+Common in:
+Dataset processing
+Featuriteration
+whilLoop
+Repeats as long as condition is true.
+Syntax:
+condition:
+Example:
+count =
+count <=
+print(count)
+count +=
+Avoiding InfinitLoops
+Infinitloop occurs when:
+Condition never becomes false
+Bad example:
+True:
+print( )
+Always:
+Updatloop variable
+Ensurexit condition
+Loop Control Statements
+Python provides:
+° — exit loop immediately
+° — skip current iteration
+Used for fine-grained control.
+break Statement
+num range(1, ):
+num ==
+print(num)
+Output:
+1234
+Stops loop entirely.
+continuStatement
+num range(1,
+num % ==
+print(num)
+Output:
+Skips only current iteration.
+Combining Conditions & Loops
+Real-world example:
+values = [4, -2,
+Vv values:
+Vv <=
+print(v)
+Used frequently in:
+Data cleaning
+Featurfiltering
+Practical Exampl— Password Attempts
+attempts =
+whilattempts <
+password = input("Enter password: ")
+if password == "admin123":
+print("Access granted")
+break
+attempts +=
+Demonstrates:
++ EEEIE) loop
+condition
+abreak
+Hands-On Exercis#1
+Writa program to:
+Check if anumber is positive, negative, or zero
+Hands-On Exercis#2
+Writa loop that:
+Prints numbers from 1 to 20
+Skips multiples of 3
+Stops when number reaches 15
+Common Beginner Errors
+Incorrect indentation
+° Infinitloops
+Using wrong condition
++ Misplaced EREEM or
+Debug by:
+Printing intermediatvalues
+Reading error messages carefully
+KnowledgCheck
+1. Differencbetween and loop
+2. What does do?
+3. What happens if indentation is incorrect?
+4. Writa condition to check if agis between 18 and 60
+5. When would you us
+Summary
+Control flow enables decision-making
+om ifMelith control execution paths
+° and enablrepetition
+° and refinloop behavior
+Thesconcepts arfoundational for ML programming
+Next Class
+Functions & Modular Programming
+Defining functions
+Parameters & return values
+Reusability
+Introduction to modules
+MachinLearning
+Python Programming Basics & Operators
+Functions & Modular Programming
+Defining functions
+Parameters & return values
+Reusability
+Introduction to modules
+Learning Objectives
+By thend of this session students should bablto:
+Definand call Python functions
+Uspositional, keyword, and default parameters
+Return singland multiplvalues; understand scope
+Writsimplrecursivfunctions with proper bascases
+Create, import, reload, and run modules (.py files) from thworking folder
+Why Functions & Modules?
+Functions encapsulatbehavior: avoid repetition (DRY principle)
+Modules (.py files) packagrelated codfor reusacross projects
+Benefits: easier testing, clearer code, better maintainability
+Parts of a Function
+Part PurposExample
+Keyword to defina function def greet():
+Namof function (snake_case) def calculate_total():
+Inputs to thfunction (name, age)
+docstring Description of what it does """Return greeting string."""
+Send valuback to caller return greeting
+Function Basics — Syntax
+function_name(param1, param2=default) :
+"""OQptional docstring describing behavior.
+won
+result
+Example:
+greet(name) :
+"""Return a greeting string."""
+f"Hello, i"
+Calling Functions — SimplExample
+print(greet("Sita"))
+Step-through:
+Python evaluates arguments, calls thfunction, executes body and returns result.
+Parameters & Argument Types
+Positional arguments: order matters
+Keyword arguments: name=valu(order independent)
+Default values: makarguments optional
+Variable-length: *args (positional), **kwargs (keyword)
+Example:
+power (3)
+power(3, p
+Returning Values
+Usreturn to send values back to thcaller
+Multiplvalues returned as a tupl(can bunpacked)
+Example:
+min(values), max(values)
+lo, hi = min_max([4, 1, 9])
+print(lo, hi)
+VariablScop— Local vs Global
+Local: variables defined insida function (not visibloutside)
+Global: variables at modullevel (visiblacross thmodule)
+Prefer returning values instead of mutating globals
+Example:
+print(foo(), x)
+Recursion — Concept & Example
+Recursion: a function calls itself to solva smaller subproblem
+Always includa bascasto stop recursion
+Exampl(factorial):
+n * factorial(n - 1)
+Troubleshooting
+Common Errors
+Error
+NameError: name
+‘func’ is not defined
+Cause
+Function called before
+definition
+Solution
+Definfunction before
+using it
+TypeError: func() missing 1 required
+positional argument
+Wrong number of
+arguments
+Check function signature
+ModuleNotFoundError: No modulnamed ‘xyz
+Modulfilnot found
+Ensur.py filis in same
+folder
+RecursionError:
+exceeded
+maximum recursion depth
+Missing/wrong bascase
+Add proper bascasto
+recursion
+AttributeError:
+‘func’
+modulhas no attribute
+Function not in module
+Check modulhas the
+function
+Debugging Tips
+print(
+result = x * 2
+print(
+return result
+import datautils
+print(dir(datautils) )
+print(
+def (a, b):
+return a + b
+assert add(2, 3) == 5,
+print( )
+Modules — What & Why
+A modulis a .py filcontaining functions, classes, and variables
+Import modules into other scripts or interactivsessions to reusfunctionality
+Import styles:
+°c import modul— usmodule.name
+° from modulimport nam— usnamdirectly
+Creata ModulFil— SimplApproaches
+A. Creatusing a text editor and savas mymodule.py in thproject folder (recommended).
+B. Programmatic writfrom Python (useful for quick examples):
+open("mymodule.py", “w").write(code)
+After saving thfilin thsamfolder as your code, it can bimported as a module.
+ExamplModul— datautils.py
+(n):
+return [i*i for i in range(1, n+1)]
+(n):
+if n <= 1:
+return False
+if n% 2 == @ andn != 2:
+return False
+i= 3
+whili * i <= n:
+if n% i == @:
+return False
+i+t=2
+return True
+(weight_kg, height_m):
+bmi = weight_kg / (height_m ** 2)
+if bmi < 18.5:
+cat =
+elif bmi < 25:
+cat =
+elif bmi < 30:
+cat =
+else:
+cat =
+return bmi, cat
+, first_n_squares(5))
+[n for n in range(1,21) if is_prime(n)])
+, bmi_info(7®, 1.75))
+Import and UsthModule
+In another Python filor session within thsamfolder:
+import datautils
+print(datautils.first_n_squares(5) )
+print([n for n in range(1,21) if datautils.is_prime(n)])
+1.75))
+Or import specific names:
+from datautils import is_prime, bmi_info
+print(is_prime(17) )
+1.6))
+Updating a ModulDuring Development
+When you edit a modulduring thsaminterpreter/session, reload it:
+importlib
+importlib.reload(datautils)
+Alternatively, start a fresh interpreter/session to get a clean import.
+Organizing Cod— SimplProject Layout
+project/
+datautils.py
+scripts/
+run_demo. py
+README. txt
+Keep reusablmodules at top-level of thproject so other files can import them directly.
+Best Practices & Common Pitfalls
+Keep functions focused and small
+Add docstrings and short comments for public functions
+Avoid heavy computation at import tim(usdemo/test blocks)
+Rm ASR import module) Ream from modulimport name
+For mutabldefault arguments usNonand initializinsidthfunction
+Exampl(safdefault pattern):
+1st None:
+Ist = []
+lst .append(x)
+1st
+Hands-on Exercises (in-class / lab)
+1. Creatwith thexamplfunctions. Run thfile's quick checks to verify
+outputs.
+2. In a separatfile, import and call each function for samplinputs.
+3. Improvfor small optimizations (handleven numbers, skip even divisors).
+4. Add simplassertion tests in a small test filto validatbehavior.
+Assessment / Homework
+Deliverables:
+o CEyetemcmea With required functions and docstrings
+© ashort script showing how you import and usthmodul(e.g., Eelgieresyag met="q )
+° listing exact steps you used to run thdemo in your environment
+Evaluation will check correctness, codclarity, and presencof basic tests.
+MachinLearning
+Week 3 - Class 1
+Introduction to Linear Regression
+Class Objective
+By thend of this class, students will bablto:
+Understand what regression is
+Explain thidea of linear regression
+Identify dependent and independent variables
+Derivthlinear regression equation
+Perform manual calculations for simpllinear regression
+Interpret slopand intercept meaningfully
+What Is Regression?
+Regression is a supervised learning techniquwhere:
+Output variablis continuous
+Thgoal is to predict a numerical value
+Examples:
+Predict housprice
+Predict salary from experience
+Predict fuel consumption from enginsize
+Why Linear Regression?
+Linear regression is used when:
+Relationship between variables is approximately linear
+Wwant a simple, interpretablmodel
+Data follows a straight-lintrend
+It is:
+Easy to understand
+Easy to compute
+Widely used as a baselinmodel
+Real-World Uses of Linear Regression
+Market research & customer surveys
+Automobilenginperformancanalysis
+Pricing of goods and services
+Astronomy and scientific measurements
+Economics and financforecasting
+SimplLinear Regression
+SimplLinear Regression has:
+Onindependent variabl(X)
+Ondependent variabl(Y)
+General form:
+Where:
+m= slope
+c= intercept
+Y=mX+c
+Understanding thVariables
+Independent variabl(X)
+— input, predictor, feature
+Dependent variabl(Y)
+— output, response, target
+Example:
+X = hours studied
+Y =exam score
+Graphical Interpretation
+X axis + Independent variable
+Y axis ~ Dependent variable
+Best-fit straight linrepresents thmodel
+Objective: minimizerror between actual and predicted values
+Problem Statement (Example)
+Consider thfollowing data:
+X (Hours Studied) Y (Marks)
+al 2
+3)
+wm} BR] @) Nd
+Wwant to find thbest fit line.
+Step 1: Formula for Slop(m)
+my XY —(X)OUY)
+ny X?- (SX)?
+Where:
+n= number of observations
+Step 2: ComputRequired Values
+XY
+x<
+i)
+1 2 i
+2 4
+3 5 9 15
+4 4 16 16
+5 6 25 30
+Summations
+SOX =15
+«> ¥ =21
+sy) X55
+SAY =7TI
+en=5d
+Step 3: CalculatSlop(m)
+5(71) — (15) (21)
+m=
+5(55) — (15)2
+mess lb
+1) O75 — 225
+=5 =
+m 0.8
+Step 4: Formula for Intercept (c)
+c= SY-myx
+Substitutvalues:
+21 — (0.8 x 15)
+Zl = I 9)
+S=j= 18
+5) 5
+Final Regression Equation
+Y =0.8X + 1.8
+This is thbest fit linfor thgiven data.
+Interpretation of thModel
+Slop(0.8)
+— For every 1 unit increasin X, Y increases by 0.8 units
+Intercept (1.8)
+— Expected valuof Y when X = 0
+Making Predictions
+lf a student studies for 6 hours:
+Y = 0.8(6) + 1.8 = 6.6
+Predicted marks = 6.6
+Error in Linear Regression
+Error (Residual):
+Error — Yactnal — Ypredicted
+Goal of linear regression:
+Minimiztotal error
+Best fit linminimizes sum of squared errors
+Limitations of Linear Regression
+Assumes linear relationship
+Sensitivto outliers
+Cannot model complex curves
+Poor performancif data is non-linear
+What Comes Next?
+Next classes will cover:
+MultiplLinear Regression
+Polynomial Regression
+Matrix methods
+Error metrics (MSE, RMSE)
+In-Class Exercise
+1. Usthgiven formula to computregression for a new dataset
+2. Plot thdata points and regression line
+3. Predict output for unseen values
+PracticProblem
+A company wants to predict Sales (Y) based on Advertising Budget (X) in thousands of dollars.
+X (Budget) Y (Sales)
+2 g]
+83 5)
+4 6
+5) 8
+6 9
+Tasks:
+1. Calculatthregression equation
+2. Predict sales when budget = 7
+MachinLearning
+Week 3 - Class 2
+SimplLinear Regression Using Python
+Class Objective
+By thend of this class, students will bablto:
+Load CSV data using NumPy and Pandas
+Inspect and understand tabular datasets
+Plot data points using Matplotlib
+Apply SimplLinear Regression in Python
+Visualizthregression line
+Interpret model output (slop& intercept)
+Recap: What WDid Last Class
+Previously, we:
+Defined linear regression
+Derived thregression equation manually
+Calculated slopand intercept
+Predicted values mathematically
+Today: Wlet Python do thsamwork programmatically.
+Dataset Used
+Wwill usa CSV filcontaining:
+Budget (X) Sales (Y)
+2 3
+3 5
+4 6
+5 8
+6 9
+X — Advertising Budget (in thousands)
+Y — Sales (in thousands)
+Step 1: Required Libraries
+Wwill usthfollowing Python libraries:
+NumPy ~> numerical computation
+Pandas — data loading & manipulation
+Matplotlib — visualization
+Scikit-learn — regression model
+Importing Libraries
+numpy np
+pandas pd
+matplotlib.pyplot plt
+sklearn.linear_model LinearRegression
+Step 2: Loading CSV Data Using Pandas
+Assumthfilis named EEICRIREReng.
+data = pd.read_csv("s
+print(data)
+Inspecting thDataset
+data.head()
+data.info()
+data.describe()
+Purpose:
+Understand structure
+Check data types
+Look for missing values
+Separating Independent and Dependent Variables
+Step 3: Visualizing thData (Scatter Plot)
+.scatter(X, Y)
+.xlabel(
+.ylabel(
+.title(
+. show()
+This plot shows thlinear relationship between X and Y.
+Step 4: Creating thLinear Regression Model
+model = LinearRegression()
+model.fit(X, Y)
+Train (fit) thmodel on thdata.
+Extracting Model Parameters
+model
+model .intercept_
+print( , m)
+print( , Cc)
+Thesvalues correspond to thformula:
+Y=mX+c
+Comparing With Manual Calculation
+From previous class:
+Manual slop= 1.5
+Manual intercept ~ 0.2
+Python output should closely match thesvalues.
+Step 5: Plotting Regression Line
+Y_pred = model.predict(X)
+plt.scatter(X, Y, label="Actual Data")
+plt.plot(X, Y_pred, color="red", label="Regression Line")
+plt.xlabel("Advertising Budget")
+plt.ylabel("“Sales")
+plt.legend()
+plt.show()
+Making Predictions Using thModel
+Predict sales when budget = 7:
+new_budget = np.array([[7]])
+prediction = model.predict (new_budget )
+print("Pred 3:",
+Interpretation of thOutput
+Slop(m)
+— Increasin sales for every unit increasin budget
+Intercept (c)
+— Expected sales when budget = 0
+This matches our theoretical understanding from Class 1.
+Error Concept (Brief)
+errors = Y - Y_pred
+Later wwill study:
+Mean Squared Error (MSE)
+Root Mean Squared Error (RMSE)
+Why UsLibraries Instead of Manual Calculation?
+Handles largdatasets
+Less error-prone
+Faster computation
+Industry standard practice
+Manual calculation is important for understanding, not for production.
+In-Class Exercise
+1. Load thCSV filprovided
+2. Plot thdataset
+3. Train a linear regression model
+4. Print slopand intercept
+5. Predict output for a new input
+Homework
+Completthin-class exercise
+Writa full Python script from data loading to prediction
+Test with thpracticdataset from Class 1
+Preparfor MultiplLinear Regression
+Decision Tree
+Class 11-ID3 Algorithm
+Class Objective
+By thend of this class, students will bablto:
+Understand what a Decision Treis
+Explain thID3 algorithm
+CalculatEntropy
+CalculatInformation Gain
+Select throot nodmanually
+What Is a Decision Tree?
+A Decision Treis a supervised learning model that:
+Predicts output using decision rules
+Splits data based on attributvalues
+Has:
+© Decision nodes — attributes
+o Leaf nodes — class labels
+Used mainly for classification.
+Example
+Is thperson fit?
+ID3 Algorithm
+ID3 stands for IterativDichotomiser 3
+Key points:
+Top-down approach
+Greedy algorithm
+Selects attributwith maximum Information Gain
+Works best with categorical data
+How Does ID3 Choosa Split?
+ID3 uses:
+Information Gain
+Thattributthat reduces uncertainty thmost is chosen as thnode.
+To calculatInformation Gain, wfirst need Entropy.
+All students pass → No confusion → Entropy =
+Half pass, half fail → Maximum confusion
+Information Gain (Theory)
+Information Gain measures:
+Reduction in entropy after splitting on an attribute
+Formula:
+Gain(S, A) = Entropy(S) — SS os Entropy(S,)
+Where:
+S = Original dataset
+A= Attributto split on
+§_v = Subset v after splitting by attributA
+In short:
+1. Find entropy beforsplit
+|S_v| = Number of records in subset v 2. Find entropy after split
+|S] = Total number of records in S 2 BESTE
+= Sum over all subsets created by splitting on A
+Numerical ExamplDataset
+Target: Play Tennis (Yes / No)
+S. No. Outlook TemperaturHumidity
+10
+11
+12
+13
+14
+Step 1: Entropy of Dataset
+Total records = 14
+Yes=9
+No=5
+$) ) 5
+Entropy(S) = — 7g l08r74 W082 Ai
+Entropy(S) = 0.94
+Step 2: Split on Attribut- Outlook
+Outlook Yes No Total
+Sunny
+Overcast | 4 jo |4 |
+Ran [3 |2 [5 |
+Entropy for Each Split
+Sunny:
+2 ?} 3) 3
+Entropy = 5 082 5 5 082 == 0.97
+Overcast:
+Entropy =0 (pure)
+Rain:
+Entropy = 0.97
+Step 3: Information Gain (Outlook)
+: 5 4 5
+Gain(S, Outlook) = 0.94 — € x 0.97 + Satis O+ 1a 097)
+Gain(S, Outlook) = 0.246
+Root NodSelection
+CalculatInformation Gain for all attributes
+Attributwith highest gain becomes:
+Root Node
+»> Outlook
+Building thDecision Tree
+Outlook (Root)
+/ | \
+/ | N
+Sunny Overcast Rain
+/ | i
+i} | / \
+? YES ? ?
+if \
+/ \
+NO YES
+After splitting on Outlook:
+Overcast — Pur(all YES) V
+Sunny & Rain — Need further splits
+Next Step: AnalyzSunny Node
+Sunny subset: 5 records (2 Yes, 3 No)
+Entropy(Sunny) = 0.97
+Need to check other attributes:
+Temperature, Humidity, Wind, etc.
+CalculatInformation Gain for each attributwithin Sunny subset.
+Next Step: AnalyzRain Node
+Rain subset: 5 records (3 Yes, 2 No)
+Entropy(Rain) = 0.97
+Need to check other attributes to further split.
+Example: Wind might bthbest split here
+ID3 Algorithm Steps (Exam Answer)
+1. Calculatentropy of dataset
+2. Calculatinformation gain for each attribute
+3. Select attributwith highest gain
+4. Split dataset
+5. Repeat until:
+o All nodes arpurOR
+© No attributes left
+Partial Decision TreSummary
+Outlook [Gain = 0.246]
+/ | \
+M | \\
+Sunny Overcast Rain
+(2YemeoN)) (4Y, ON) (BYan2N)
+| | |
+? YES ?
+(Need split)
+Overcast is pur(leaf node)
+Sunny and Rain need further analysis
+Key Takeaways
+Y ID3 builds trees top-down using greedy approach
+¥ Information Gain determines which attributto split on
+Y Process repeats recursively on subsets
+¥ Stops when all nodes arpuror no attributes remain
+Next class: Completdecision tre+ Handling continuous attributes
+MachinLearning
+NaivBayes Classifier
+Mathematical Classification
+Class Objective
+By thend of this class, students will bablto:
+Apply Bayes Theorem for classification
+UsthNaiv(conditional independence) assumption
+Computposteriors step-by-step for a new instance
+Classify an unseen data point mathematically
+Key terms
+Prior: a starting guess for how likely each class is, beforseeing thnew example.
+Likelihood: how likely thobserved features arunder a given class (from thtraining
+data).
+Posterior: thupdated probability of a class after seeing thexampl(what wwant).
+Normalize: scaling scores so they add to 1 and becomproper probabilities.
+Bayes Theorem (CorIdea)
+For class v and evidenc2:
+v) = prior probability of class
+x | v) = likelihood
+v | x) = posterior probability
+x) = evidenc(normalization)
+NaivBayes Assumption
+If c = (a1, then:
+G| O) = [[ PCa |»)
+i=1
+So thdecision rulbecomes:
+UNB = arg aP(v) [] PC: i)
+NaivBayes assumes each featur(likOutlook, Temperature) gives independent evidence
+about thclass. Wcomputa scorfor each class by multiplying thprior and thfeature
+probabilities, then pick thclass with thhigher score.
+Dataset
+Outlook TemperaturHumidity Windy PlayTennis
+Sunny Hot High | Weak Ne)
+Sunny Hot High | Strong No
+Overcast Hot High | Weak Yes
+Rainy Mild High | Weak Yes
+Rainy Cool Normal | Weak Yes
+Rainy Cool Normal | Strong Ne)
+Overcast Cool Normal | Strong Yes
+Sunny Mild High | Weak No
+Sunny Cool Normal | Weak Yes
+Rainy Mild Normal | Weak Yes
+Outlook TemperaturHumidity Windy PlayTennis
+Sunny Mild Normal | Strong Yes
+Overcast Mild High | Strong Yes
+Overcast Hot Normal | Weak Yes
+Rainy Mild High | Strong Ne)
+Dataset: PlayTennis (Summary)
+Class counts (14 total):
+PlayTennis = Yes: 9
+PlayTennis = No:5
+So:
+Conditional Probabilities (From Training Data)
+Outlook
+Temperature
+Outlook P(-| Yes) P(-| No)
+sunny 2/9 3/5
+overcast 4/9 0/5
+rain 3/9 2/5
+Temp P(-| Yes) P(-| No)
+hot 2/9 2/5
+mild 4/9 2/5
+cool 3/9 1/5
+Conditional Probabilities (Continued)
+Humidity
+Humidity P(-| Yes) P(-| No)
+high 3/9 4/5
+normal 6/9 1s
+Wind
+Wind P(-| Yes) P(- | No)
+strong 3/9 3/5
+weak 6/9 2/5
+Problem Instance
+Classify:
+xz = (Outlook = sunny, Temperatur= cool, Humidity = high, Wind = strong)
+Wcomputunnormalized scores:
+Score(v) = P(v) [[P@ i)
+Thesarnot yet probabilities — they arproportional to thposterior. Wdividby thsum
+of scores to get real probabilities that sum to 1.
+Scorfor Yes (Step-by-step)
+Score(Yes) = P(Yes) - P(sunny | Yes) - P(cool | Yes) - P(high | Yes) - P(strong | Yes)
+Substitutvalues:
+Dal, Senae
+Scorfor No (Step-by-step)
+Score(No) = P(No) - P(sunny | No) - P(cool | No) - P(high | No) - P(strong | No)
+Substitutvalues:
+Normalizto Get Posterior Probabilities
+Score(Yes)
+P(Y =
+(Yes| 2) Score(Yes) + Score(No)
+P(No|«) = Score(No)
+Score(Yes) + Score(No)
+Using computed scores:
++ P(Yes | x) = 42 ~ 0.2046
+* P(No| a) = 8% ~ 0.7954
+Y Prediction: PlayTennis = No
+New Unseen Instance
+Now classify a new data point:
+Lnew = (Outlook = rain, Temperatur= mild, Humidity = high, Wind = weak)
+Computscores again.
+New Instance: Score(Yes)
+Score(Yes) = a
+New Instance: Score(No)
+New Instance: Normaliz+ Decision
+0.02116
+LAG = = 0.5365
+(Yes | tnew) = 995776 + 0.01829
+P(No | tnew) © 0.4635
+Prediction for unseen data: PlayTennis = Yes
+Summary
+NaivBayes uses:
+° Priors P(v)
+© Likelihoods P(a; | v)
+© Product rul(naivindependence)
+For PPT instanc(sunny, cool, high, strong): No
+For unseen instanc(rain, mild, high, weak): Yes
+MachinLearning
+K-Nearest Neighbors (KNN)
+Supervised Learning - Classification
+Class Objectives
+By thend of this class, students will bablto:
+Understand what K-Nearest Neighbors (KNN) is
+Explain why KNN is a lazy learning algorithm
+Select an appropriatvaluof K
+Perform KNN classification numerically step-by-step
+Identify advantages and limitations of KNN
+What Is K-Nearest Neighbors (KNN)?
+K-Nearest Neighbors (KNN) is a supervised learning algorithm that:
+Stores all training data
+Classifies a new data point based on similarity
+Uses distancmeasures (most commonly Euclidean distance)
+No explicit training phas— prediction happens at runtime.
+Why Is KNN Called a Lazy Algorithm?
+KNN is a lazy learner because:
+It does not build a model
+It simply memorizes training data
+Computation is deferred until prediction time
+Wheras, Eager learners likDecision Trees, build a model during training.
+DistancMeasurUsed in KNN
+Most commonly used distance: Euclidean Distance
+For two points x = (x1, 22) and a = (aj, a2):
+d(x, a) = 4/ (x1 — a1)? + (a2 — a2)?
+Squared Euclidean Distanc(often used to avoid squarroots):
+d?(x, a) = (x — a,)° + (a2 —- ap)*
+How to ChoosthValuof K?
+Rulof Thumb
+Start withk = 1
+Increask gradually
+Choosk with minimum error on a validation set
+Practical Guidelines
+Usodd values of k (to avoid ties)
+Small k > Overfitting
+Largk > Underfitting
+Overfitting v/s Underfitting
+Aspect
+Overfitting
+Model learns training data too well,
+Underfitting
+Model is too simplto capture
+Silat including noispatterns
+Training Error | Very low High
+Test Error High High
+Bias Low High
+VariancHigh Low
+Generalization | Poor Poor
+Simple
+Example
+Memorizing exam questions instead of
+understanding concepts
+Using only addition to solvall
+math problems
+Bias and Variance
+Bias
+Therror that occurs when a model is too simplto capturthtrupatterns in thdata.
+High bias: Thmodel oversimplifies, misses patterns and underfits thdata.
+Low bias: Thmodel captures patterns well and is closer to thtruvalues.
+Variance
+Variancarises when a model becomes too sensitivto training data and it captures noises in
+data too. It fails to givprediction on unseen new data.
+High variance: Thmodel is too sensitivto small changes and may overfit.
+Low variance: Thmodel is morstablbut might miss sompatterns.
+Goal: Find thright balancbetween bias and variancfor optimal generalization.
+Effect of K on Model Behavior
+Small k
+Low bias
+High variance
+Sensitivto noise
+Risk of overfitting
+Largk
+High bias
+Low variance
+Smoother decision boundary
+Risk of underfitting
+KNN Algorithm - Step by Step
+1. Choosthvaluof k
+2. Computdistancbetween query point and all training points
+3. Sort distances in ascending order
+4. Select k nearest neighbors
+5. Takmajority vot(classification)
+6. Assign thpredicted class
+Numerical Exampl- Problem Statement
+Attributes:
+X, = Acid Durability
+X» = Strength
+Target variable:
+Good / Bad
+Query (new sample):
+AG =O, Xo =
+Goal: Predict whether thtissuis Good or Bad
+Step 1: Choosk
+let k= 3:
+Note: Odd valuavoids class ties.
+Training Data (Labeled Samples)
+SamplX, (Acid) X»> (Strength) Class
+A 2 7 Good
+B 8) Good
+Cc 4 8 Bad
+D 5 bs) Bad
+E a 4 Good
+F 7 i Bad
+G 3 8 Bad
+Step 2: ComputDistances
+UsSquared Euclidean Distancto avoid squarroots:
+d? (3,7), (a1, a2)) = (3 — a1)? + (7 — a)?
+SamplPoint (a, a2)
+iN (27) (3 — 2)? + (7-7)? =1 | Good
+B (3, 6) (3 — 3)? + (7-6)? =1 | Good
+f(3, 8) (3 —3)?+(7-—8)?=1 | Bad
+Cc (4, 8) (3 —4)?+ (7-8)? =2 | Bad
+D (5, 5) (3 —5)?+ (7-5)? =8 | Bad
+E (1, 4) (3 — 1)? + (7-4)? = 13) Good
+F (7, 7) (3 — 7)? + (7-7)? =16| Bad
+Step 3: Sort Distances (Ascending)
+Order of samples by increasing d?:
+1. A (1, Good), B (1, Good), G (1, Bad)
+2. C (2, Bad)
+3. D (8, Bad)
+4. E (13, Good)
+5. F (16, Bad)
+Step 4: Select k Nearest Neighbors (k = 3)
+Nearest 3 neighbors: A, B, G
+Neighbor 1 > A (Good)
+Neighbor 2 — B (Good)
+Neighbor 3 — G (Bad)
+Step 5: Majority Voting (k = 3)
+Count class labels among A, B, G:
+Good = 2
+Bad=1
+Majority class = Good
+Final Prediction (for k = 3)
+Thnew paper tissuwith X; = 3, X2 = 7is classified as:
+fefete})
+Comparison with k = 5
+Select nearest 5 neighbors: A, B, G, C, D
+Good: A, B > 2
+Bad: G,C,D > 3
+Result for k = 5: BAD
+This shows how increasing k can changthprediction by smoothing decision boundaries and
+reducing sensitivity to very-clospoints.
+Applications of KNN
+Classification problems
+Missing valuestimation
+Pattern recognition
+Document similarity
+Genexpression analysis
+Imagand handwriting recognition
+Practice
+Recomputpredictions for a different query, e.g., (X1, X2) = (4,7), fork = 3andk=5.
+MachinLearning
+Model Evaluation Metrics
+Understanding Model Performance
+Class Objectives
+By thend of this class, students will bablto:
+Interpret a Confusion Matrix
+Calculatand distinguish between Accuracy and Error Rate
+Understand Precision, Recall, and their trade-offs
+Computand interpret thF1-Score
+Evaluatregression models using MAE, MSE, RMSE
+Understand and calculatR? (Coefficient of Determination)
+Choosthappropriatmetric for different scenarios
+Why Model Evaluation Metrics?
+Model evaluation metrics help us answer:
+How well is my model performing?
+Is my model making thright predictions?
+Which model should I choose?
+What typof errors is my model making?
+Different metrics servdifferent purposes — choosing thright ondepends on your problem
+domain and business requirements.
+1. Confusion Matrix
+Definition
+A confusion matrix is a tablthat visualizes thperformancof a classification model by
+comparing actual vs. predicted values.
+For binary classification:
+Predicted PositivPredicted Negative
+Actual Positiv| TP (TruPositive) | FN (FalsNegative)
+Actual Negativ| FP (FalsPositive) | TN (TruNegative)
+Confusion Matrix Terms
+TruPositiv(TP): Correctly predicted positivclass
+TruNegativ(TN): Correctly predicted negativclass
+FalsPositiv(FP): Incorrectly predicted positiv(Typ| Error)
+FalsNegativ(FN): Incorrectly predicted negativ(TypII Error)
+Example: Email spam detection
+TP: Spam correctly classified as spam
+TN: Not spam correctly classified as not spam
+FP: Not spam incorrectly classified as spam
+FN: Spam incorrectly classified as not spam
+Confusion Matrix Example
+Given predictions for 100 emails:
+Predicted Spam Predicted Not Spam
+Actual Spam 40 (TP) 10 (FN)
+Actual Not Spam 5 (FP) 45 (TN)
+Total Spam emails: 40 + 10 = 50
+Total Not Spam emails: 5 + 45 = 50
+Total predictions: 100
+2. Accuracy
+Definition
+Accuracy measures thproportion of correct predictions out of total predictions.
+Formula
+A TP+TN
+Tr —
+COUracy ~ TP4+TN +FP+EN
+Or simply:
+Number of Correct Predictions
+Accuracy =
+Total Number of Predictions
+Accuracy Calculation Example
+Using our spam detection confusion matrix:
+TP+TN 40 + 45 85
+TP+TNLFPLFN 4044545410 107 °°
+Accuracy =
+Accuracy = 85%
+Thmodel correctly classified 85 out of 100 emails.
+When to UsAccuracy?
+Uswhen:
+Classes arbalanced (roughly equal distribution)
+All types of errors arequally important
+Do NOT uswhen:
+Classes arimbalanced (e.g., 95% negative, 5% positive)
+Different types of errors havdifferent costs
+Examplof misleading accuracy:
+lf 95% of emails arnot spam, a model that always predicts "not spam" achieves 95% accuracy
+but is useless!
+Error Rate
+Definition
+Error Rat(also called Misclassification Rate) is thproportion of incorrect predictions.
+Formula
+FP+FN
+E S c°o__-.5C_ $C. "\_ CO“
+rror Rat= 7p TN 1 FP LEN
+Error Rat= 1 — Accuracy
+Error RatCalculation Example
+Using our spam detection confusion matrix:
+FP+FN _ 5 +10
+E t= 2 _——_ =
+rror Rat{ADI IMNpa(Doosan 100
+Error Rat= 1 — 0.85 = 0.15
+Error Rat= 15%
+Thmodel incorrectly classified 15 out of 100 emails.
+15
+= —— = (0.1
+100 oe
+3. Precision
+Definition
+Precision measures thproportion of positivpredictions that weractually correct. It
+answers: "Of all thinstances wpredicted as positive, how many wertruly positive?"
+Formula
+TP
+Precision = TP+FP
+Precision focuses on minimizing FalsPositives.
+Precision Calculation Example
+Using our spam detection confusion matrix:
+TP 40 ~~ 40
+TP+FP 40+5 45
+Precision = = 0.889
+Precision = 88.9%
+Of all emails predicted as spam, 88.9% weractually spam.
+11.1% werfalsalarms (legitimatemails marked as spam).
+When to UsPrecision?
+Uswhen:
+FalsPositives arcostly
+You want to bconfident when you predict positive
+Examples:
+Email spam filter: FalsPositivmeans important email goes to spam
+Medical diagnosis: FalsPositivmeans healthy person gets treatment
+Criminal conviction: FalsPositivmeans innocent person convicted
+In thescases, wprefer to miss sompositivcases rather than incorrectly flag negatives as
+positive.
+4. Recall (Sensitivity/TruPositivRate)
+Definition
+Recall measures thproportion of actual positives that wercorrectly identified. It answers:
+“Of all thactual positivinstances, how many did wcorrectly identify?"
+Formula
+TP
+i = ———__.
+Reca TP + FN
+Recall focuses on minimizing FalsNegatives.
+Recall Calculation Example
+Using our spam detection confusion matrix:
+TP 40 40
+TP+ FN 4+10 7 507 °°
+Recall =
+Recall = 80%
+Of all actual spam emails, wcorrectly identified 80%.
+Wmissed 20% of spam emails (they went to inbox).
+When to UsRecall?
+Uswhen:
+FalsNegatives arcostly
+You want to catch as many positivcases as possible
+Examples:
+Diseasdetection: FalsNegativmeans sick person not diagnosed
+Fraud detection: FalsNegativmeans fraud goes undetected
+Airport security: FalsNegativmeans threat not detected
+In thescases, wprefer somfalsalarms over missing actual positivcases.
+Precision vs. Recall Trade-off
+Theris often a trade-off between Precision and Recall:
+High Precision, Low Recall: Model is conservative, only predicts positivwhen very
+confident (few falsalarms, but misses many positives)
+Low Precision, High Recall: Model is aggressive, predicts positivliberally (catches most
+positives, but many falsalarms)
+You cannot maximizboth simultaneously — you must choosbased on your problem
+requirements.
+Precision-Recall ExamplComparison
+Scenario 1: Strict Spam Filter (High Precision)
+TP=30, FP=2, FN=20, TN=48
+Precision = 30/(30+2) = 93.75%
+* Recall = 30/(30+20) = 60%
+Few falsalarms, but misses many spam emails
+Scenario 2: AggressivSpam Filter (High Recall)
+TP=45, FP=15, FN=5, TN=35
+Precision = 45/(45+15) = 75%
+Recall = 45/(45+5) = 90%
+Catches most spam, but morfalsalarms
+5.F1-Score
+Definition
+ThF1-Scoris thharmonic mean of Precision and Recall. It provides a singlmetric that
+balances both concerns.
+Formula
+Precision x Recall
+F1-S =2x ———___——_
+cor“ Precision + Recall
+Or equivalently:
+2xTP
+F1-Scor=
+2xTP+FP+ FN
+F1-ScorCalculation Example
+Using our spam detection confusion matrix:
+Precision = 0.889
+Recall = 0.80
+0.889 x 0.80 _ . 0.7112
+0.889 +0.80 1.689
+F1-Scor= 2 x = 2 x 0.421 = 0.842
+F1-Scor= 84.2%
+Why Harmonic Mean?
+Thharmonic mean is used instead of arithmetic mean because:
+It penalizes extremvalues
+If either Precision or Recall is very low, F1-Scorwill blow
+Ensures both metrics arreasonably good
+Example:
+Precision = 1.0, Recall = 0.1
+Arithmetic mean = (1.0 + 0.1) /2=0.55
+Harmonic mean (F1) = 2 x (1.0 x 0.1) / (1.0 + 0.1) = 0.18
+ThFi-Scorbetter reflects that thmodel is not performing well overall.
+When to UsF1-Score?
+Uswhen:
+You need to balancPrecision and Recall
+Classes arimbalanced
+Both FalsPositives and FalsNegatives matter
+Examples:
+Information retrieval systems
+Medical diagnosis wherboth types of errors arimportant
+When you need a singlmetric to comparmodels
+Fi-Scoris particularly useful when you cannot afford to ignoreither Precision or Recall.
+Classification Metrics Summary
+Metric Formula Focus UsWhen
+Accuracy |(TP+T7N)/Total | Overall correctness | Balanced classes
+Error Rat| 1 — Accuracy Overall errors Balanced classes
+Precision | TP/(TP + FP) Avoid falsalarms | FP is costly
+Recall TP/(TP+ FN) Catch all positives | FN is costly
+Fi-Scor| 2x(PxR)/(P +R) | BalanceP&R Both FP & FN costly
+Regression Metrics Overview
+For regression problems (predicting continuous values), wusdifferent metrics:
+MAE: Mean AbsolutError
+MSE: Mean Squared Error
+RMSE: Root Mean Squared Error
+R*: Coefficient of Determination
+All thesmetrics evaluathow clospredictions arto actual values.
+6. Mean AbsolutError (MAE)
+Definition
+MAE is thaveragof thabsolutdifferences between predicted and actual values.
+Formula
+L<= .
+MAE = — yi — ¥i|
+i=l
+Where:
+n=number of observations
+y; = actual value
+4; = predicted value
+MAE Calculation Example
+Predict housprices (in $1000s):
+Actual Pric(y;) Predicted Pric(4;) Error (y; — y;) AbsolutError |y; — 4;|
+250 240 NK) 10
+300 <¥A0) -20 20
+180 175 5 5
+400 390 10 10
+220 230 -10 10
+MAE = eer _ - -—u
+Averagerror is $11,000 in either direction.
+7. Mean Squared Error (MSE)
+Definition
+MSE is thaveragof thsquared differences between predicted and actual values.
+Formula
+MSE Calculation Example
+Using thsamhouspricdata:
+Actual (y;) Predicted (9;) Error (y; — §;) Squared Error (y; — ;)”
+250 240 10 100
+300 <YA0) -20 400
+180 175 ) 25
+400 390 10 100
+220 230 -10 100
+MSE — — rr Z =“ — 145
+8. Root Mean Squared Error (RMSE)
+Definition
+RMSE is thsquarroot of MSE, bringing therror metric back to thoriginal units.
+Formula
+RMSE = v MSE =
+RMSE Calculation Example
+Using thMSE from our houspricexample:
+RMSE = VMSE = V145 ~ 12.04
+ThRMSE is approximately $12,040.
+Interpretation: Thmodel's predictions deviatfrom actual prices by about $12,000 on
+average, with larger errors weighted morheavily.
+MAE vs. MSE vs. RMSE Comparison
+Using our houspricexample:
+MAE = 11 (averagabsoluterror)
+MSE = 145 (averagsquared error)
+RMSE = 12.04 (root averagsquared error)
+Key Difference:
+MAE treats all errors equally: |10), |20), |5|, |10], |10}
+MSE/RMSE penalizlargerrors more: 100, 400, 25, 100, 100
+Therror of 20 has 4x thimpact in MSE compared to error of 10.
+MAE vs. RMSE: Which to Use?
+Aspect MAE RMSE
+Interpretation Averagabsoluterror | Root averagsquared error
+Units Samas target Samas target
+Outlier Sensitivity | Low High
+LargError Penalty | Linear Quadratic
+UsWhen
+Outliers arnoise
+Largerrors arcritical
+Rulof thumb:
+If all errors arequally bad ~ UsMAE
+If largerrors arwors> UsRMSE
+9. R? (R-Squared / Coefficient of Determination)
+Definition
+R? represents thproportion of variancin thdependent variablthat is predictablfrom the
+independent variable(s). It ranges from 0 to 1 (can bnegativfor poor models).
+Formula
+SSres
+Ra —
+SStot
+Where:
+© SSres = D531 (yi — i)” (Residual Sum of Squares)
+© SSict = >>\_1 (yi — 9)? (Total Sum of Squares)
+y= mean of actual values
+R? Calculation Example
+Housprices: y = [250, 300, 180, 400, 220]
+Mean: y =
+250+300-+180+400+220
+— 1350
+= 27
+250 | 240 100 400
+300 | 320 400 900
+180 | 175 25 8100
+400 | 390 100 16900
+220 | 230 100 2500
+R? Calculation (Continued)
+SSres = 100 + 400 + 25 + 100 + 100 = 725
+SStot = 400 + 900 + 8100 + 16900 + 2500 = 28800
+725
+R? =1-———
+28800
+= 1— 0.0252 = 0.9748
+R? = 0.9748 or 97.48%
+Thmodel explains 97.48% of thvariancin housprices.
+Interpreting R?
+R? = 1.0: Perfect predictions (all points on thline)
+R?= 0.9: 90% of variancexplained (very good)
+R? = 0.7: 70% of variancexplained (good)
+R?=0.5: 50% of variancexplained (moderate)
+R?= 0.0: Model no better than predicting thmean
+R? < 0: Model worsthan predicting thmean
+Higher R? = Better model fit
+But beware: High R? doesn't always mean a good model (could boverfitting).
+Regression Metrics Summary
+Metric Formula Rang_—Interpretation UsWhen
+MAE + Solyi — §:| | [0,00) | Avg absoluterror | Equal error weight
+MSE |= >>(y:—%)?|[0,co) | Avg squared error | Penalizlargerrors
+RMSE MSE [0,co) | Root avg sq.error | Interpretabl+ penalize
+R? I= TSS (—oo, 1] | Variancexplained | Model comparison
+Lower is better for MAE, MSE, RMSE. Higher is better for R?.
+Choosing thRight Metric: Decision Guide
+For Classification:
+1. Arclasses balanced? > Accuracy
+2. Ils FP costly? > Precision
+3. Is FN costly? > Recall
+4. Arboth FP & FN costly? ~ F1-Score
+5. Need detailed analysis? + Confusion Matrix
+For Regression:
+1. Want simplinterpretation? ~ MAE
+2. Want to penalizlargerrors? ~ RMSE
+3. Want to measurexplained variance? > R?
+4. For optimization? ~ MSE
+Real-World Examples
+Medical Diagnosis (Cancer Detection):
+Metric: Recall (minimizFalsNegatives)
+Reason: Missing a cancer diagnosis is catastrophic
+Credit Card Fraud Detection:
+Metric: F1-Scoror Precision and Recall
+Reason: Balanccatching fraud vs. blocking legitimattransactions
+HousPricPrediction:
+Metric: RMSE and R?
+Reason: Penalizlargprediction errors, measuroverall fit
+Common Mistakes to Avoid
+1. Using Accuracy with imbalanced data
+ec Can bmisleading when onclass dominates
+2. Ignoring thcost of different errors
+o FP and FN often havdifferent impacts
+3. Using MSE for interpretation
+eo Squared units arhard to understand; usRMSE
+4. Relying only on R?
+ec Doesn't show prediction error magnitude
+5. Not using Confusion Matrix
+oc Always start with confusion matrix for classification
+PracticProblem 1: Classification
+A medical test for a rardiseas(5% prevalence) gives thesresults for 1000 patients:
+Predicted PositivPredicted Negative
+Actual Positiv45 5
+Actual Negativ95 855
+Calculate:
+1. Accuracy
+2. Precision
+3. Recall
+4. F1-Score
+Solution: PracticProblem 1
+Given: TP=45, FN=5, FP=95, TN=855
+1. Accuracy = 224855 — 200 _ 9 90 or 90%
+1000 1000
+Pr a ee
+2. Precision = Bo=m 0.321 or 32.1%
+3. Recall = => = = 0.90 or 90%
+= 0.321x0.90 _ 0.289 _
+4. F1-Scor= 2 x ial Me= 2X Foor — 0.473 or 47.3%
+Analysis: PracticProblem 1
+High Accuracy (90%): But misleading! Predicting everyonas negativgives 95% accuracy.
+Low Precision (32.1%): Many falsalarms — only 1 in 3 positivpredictions is correct.
+High Recall (90%): Good at catching actual positivcases.
+ModeratF1 (47.3%): Reflects thimbalancbetween precision and recall.
+Conclusion: This test has too many falspositives. Might need confirmation test for positive
+results.
+PracticProblem 2: Regression
+Predict student exam scores:
+Actual Predicted
+85 80
+90 92
+75 78
+95 90
+70 68
+Calculate: MAE, MSE, RMSE, R?
+Solution: PracticProblem 2 (Part 1)
+Mean actual: y =
+8519057549570 _ 415 _ gg
+H% YW-Ul Y-F
+20) | 92 2 49
+V5 | 73 i} 64
+95 |90 5 25 144
+70 | 68 2 4 169
+Sum 17 67 430
+Solution: PracticProblem 2 (Part 2)
+MAE = = = 3.4 points
+MSE = © = 13.4 points?
+RMSE = 13.4 ~ 3.66 points
+R?=1— $7 = 1 — 0.156 = 0.844 or 84.4%
+Interpretation: Predictions aroff by ~3.4 points on averag(MAE) or ~3.66 points with large
+errors weighted mor(RMSE). Thmodel explains 84.4% of scorvariance.
+MachinLearning
+K-Means Clustering
+Unsupervised Learning
+Class Objectives
+By thend of this class, students will bablto:
+Understand what K-Means clustering is
+Explain when to usK-Means
+Perform thK-Means algorithm step-by-step
+Calculatdistances and updatcentroids manually
+Interpret clustering results
+What Is K-Means?
+K-Means is a centroid-based clustering algorithm that:
+Automatically groups data into K clusters
+Works on unlabeled data (unsupervised)
+Uses distancmeasures to assign points to clusters
+Iteratively updates cluster centers (centroids) until convergence
+DistancMeasure: Euclidean Distance
+d(x, a) = V(x — ay)? + (x2 — a2)?
+When to usit
+UsK-Means when:
+You want grouping/segmentation (customers, documents, locations, behaviors)
+Features arnumeric and “distance” is meaningful
+You expect clusters to broughly compact (not weird shapes)
+Avoid or bcareful when:
+Clusters arnon-spherical / varying density
+Many outliers exist
+Kis unknown and hard to pick
+K-Means Algorithm
+Input: Dataset D, Number of clusters K
+Algorithm Steps:
+1. InitializK centroids (random points or K-means++)
+2. Assignment Step: Assign each point to thnearest centroid
+3. UpdatStep: Recomputeach centroid as thmean of assigned points
+4. Repeat steps 2-3 until centroids/assignments stop changing (convergence)
+Numerical Exampl(K = 3)
+Data Points:
+Al 2/10
+AW 2)5
+A3 8) 4
+Bi 5/8
+B2 7s
+B3 6/4
+C1 al || 4
+C2 419
+Initial Centroids (given):
+Ci= (2,10) C;=(5,8) C,—(1,2)
+Epoch 1 — Assignment Step
+Distanctabl(C1=(2,10), C2=(5,8), C3=(1,2))
+Point d(C1) d(C2) d(C3) Cluster
+Al 0.00 /3.61 | 8.06 |1
+WW 5.00 | 4.24 | 3.16
+A3 8.49 |5.00 | 7.28
+Bi 3.61 |0.00 | 7.21
+B2 7.07 | 3.61 | 6.71
+B3 7.21 |4.12 | 5.39
+Cal 8.06 | 7.21 | 0.00
+C2 2.24 |1.41 | 7.62
+NO} @WOI NMI NIN] NM] &
+Updated Centroids:
+Cluster 1: {A1} + C; = (2,10)
+* Cluster 2: {A3, B1, B2, B3, C2} > C2 = (6,6)
+Cluster 3: {A2, C1} > C3 = (1.5, 3.5)
+Epoch 2 — reassign using updated centroids
+Updated Centroids:
+Distanctabl(Epoch 2):
+C; = (2,10),
+C3 = (1.5, 3.5)
+Point d(C1) d(C2) d(C3) New Cluster
+Al 0.00 |5.66 |6.52 |1
+LW 5.00 |4.12 |1.58 |3
+A3 8.49 | 2.83 |6.52 |2
+B1 3.61 | 2.24 |5.70 |2
+B2 7.07 | 1.41 |5.70 |2
+B3 7.21 |2.00 |4.53 |2
+(Cal 8.06 |6.40 |1.58 |3
+C2 2.24 |3.61 |6.04 | 1
+UpdatCentroids Again:
+= COS) Ch= C5525) Cy = (14,35)
+Epoch 3 — reassign using updated centroids
+Updated Centroids:
+C1 = (3, 9.5),
+Distanctabl(Epoch 3):
+C2 = (6.5, 5.25),
+C3 = (1.5, 3.5)
+Point d(C1) d(C2) d(C3) New Cluster
+Al 1.12 |6.54 |652 |1
+W 4.61 |4.51 |/1.58 |3
+A3 7.43 /1.95 |6.52 |2
+B1 2.50 |3.13 [5.70 |1
+B2 6.02 |0.56 |5.70 |2
+B3 6.26 /1.35 | 4.53 |2
+(Cal 7.76 |6.39 |1.58 |3
+C2 1.12 |4.51 |6.04 |1
+Updated Centroids:
+Ci = (Cr,D) Cy = (648s) (Ca = (1145, 85)
+Epoch 4 — reassign and check convergence
+Updated Centroids:
+C; = (3.67, 9),
+Distanctabl(Epoch 4):
+Cy = (7,4.33),
+C3 = (1.5, 3.5)
+Point d(C1) d(C2) d(C3) New Cluster
+Al 1.94 |7.56 |6.52 |1
+W 4.33 |5.04 |/1.58 |3
+A3 6.62 |1.05 |6.52 |2
+B1 1.67 |4.18 |5.70 |1
+B2 5.21 |0.67 |5.70 |2
+B3 5.52 /1.05 | 4.53 |2
+(Cal 749 |6.44 |1.58 |3
+C2 0.33 /5.55 | 6.04 |1
+Cluster assignments arunchanged ~ Convergencreached
+Support Vector Machin(SVM)
+What is SVM?
+A Beginner's Introduction
+Imaginyou have:
+Red balls and bluballs scattered on a table
+You want to draw a linseparating them
+SVM does exactly this!
+It finds thbest lin(or boundary) to separatdifferent groups
+Th"best" linis thonwith maximum distancfrom both groups
+This distancis called thmargin
+Why UsSVM?
+Key Advantages
+Works great with clear separation
+Finds thoptimal boundary between classes
+Handles high-dimensional data
+Effectiveven when you havmany features
+Memory efficient
+Only uses a subset of training points (support vectors)
+Linear SVM
+Concept
+SVM finds an optimal separating hyperplane
+© In 2D:a lin| In 3D: a plan| In higher dimensions: a hyperplane
+Thhyperplanis defined by support vectors
+°o Thesarthclosest points from each class to thboundary
+Only a few boundary points decidthclassifier
+° Most data points don't affect thdecision boundary
+Understanding Support Vectors
+What ArThey?
+Support Vectors are:
+Thdata points closest to thdecision boundary
+Thcritical points that definwherthboundary goes
+Likanchors holding a rop(thboundary) in place
+Why arthey important?
+Moving a support vector changes thboundary
+Moving other points doesn't affect thboundary
+Linear SVM
+Example
+Positivlabelled points
+(3,1), (3,1), (631), (6,1)
+Negativlabelled points
+(1,0), (On): (OS (—1,0)
+Visual: Linear SVM Dataset
+Plotting thPoints
+positive
+negative
+Observation: Positivpoints aron thright, negativpoints on thleft
+Linear SVM
+Support Vector Selection
+From thgraph, widentify:
+Negativsupport vector (closest negativpoint)
+5, = (1,0,1)
+Positivsupport vectors (closest positivpoints)
+Note: Last component {i is added for bias term (intercept)
+Visual: Support Vectors & Boundary
+Linear SVM Decision Line
+[+] = Support Vector
+© = Support Vector
+Decision Boundary (y = x - 2)
+Key: Only boxed points [e] arsupport vectors!
+Linear SVM
+Generalization Equations
+For each support vector, wcreatan equation:
+a8) + 8 +028) + 85 +038) +85 = —l
+185-81 + 284 + $y +.0389°53 =1
+0185 - $4 +. 0285-85 +0383-83 =1
+Thdot product (-) measures similarity between vectors
+Step 1: CalculatDot Products
+Recall support vectors:
+s, = (1,0,1), s2 = (3,1, 1), 53 = (3, -1, 1)
+Computall dot products:
+sj-s;=17+0? +1? =2
+8-8) = 1(3) + 0(1) +1(1) =4
+$1 -° 83 = 1(3)+0(-1)+1(1) =4
+Step 2: MorDot Products
+85° 8, = 3(1) +1(0) +1(1) =4
+olelo oll
+8° 8, = 3(3) + 1(-1) +1(1) =9
+83°; = 3(1) + (—1)(0) + 1(1) =4
+#94 = 3(3) + (-1)() + 11) =9
+8,°8,=37+(-1?+VP=11
+Step 3: Substitutinto Equations
+Equation 1:
+2a, + 4a, + 4a3 = —1
+Equation 2:
+4a; + 1llaz+ 9a3 = 1
+Equation 3:
+4a, =F Jao =F llag = Il
+Step 4: SolvthSystem
+Simplify Equation 1: Dividby 2
+a, + 2a2g + 2a3 = —0.5
+Subtract Equation 2 from Equation 3:
+—2a2 + 2a3 = 0 An = a3
+Step 5: Final Substitution
+Sinca2 = a3, substitutinto simplified Eq 1:
+ay + 2a2g + 2a2 = —0.5
+a1 +409 =-0.5 ...(A)
+Substitutinto Equation 2:
+4a, +1lag+ 9a, =1
+4a, + 20a, =1 ...(B)
+Step 6: Solvfor a Values
+From (A): a; = —0.5 — 4az
+Substitutinto (B):
+4(—0.5 — daz) + 2002 = 1
+—2 — 16a + 20a2 = 1
+4ayg = 3 a2 = 0.75
+Therefore: a3 = 0.75 and a; = —0.5 — 4(0.75) = —3.5
+Linear SVM
+Solving a Values
+After solving thequations:
+a, = —-3.5, a2g=0.75, a3 =0.75
+Linear SVM
+HyperplanCalculation
+Wcombinsupport vectors with their weights:
+w= nQ4S8;
+Substituting our values:
+W' = —3.5(1,0, 1) + 0.75(3, 1, 1) + 0.75(3, —1, 1)
+Result:
+W’' = (1,0, —2)
+Linear SVM
+Final Equation
+Thdecision boundary equation:
+y=Wa+b
+Where:
+W = (1,0) > weight vector (slope)
+b=2- bias term (intercept)
+To classify thhyperplane:
+b—a=0|b—2=0
+b=alb=2
+If W = (1,0) -> Vertical Line
+If W = (0,1) -> Horizontal Line
+Visual: SVM Margin
+positive
+negative
+PracticTask: SolvYourOwn SVM
+New Support Vectors
+Given thresupport vectors:
+S$; = (2,1,1), S2=(2,-1,1), S3 = (4,0,1)
+Your Task:
+1. Calculatall dot products S; - 5;
+2. Set up thsystem of equations using:
+© S$) -Sjai +S} -S3a2+ S}-S3a3 = —1
+o S4- Sja1 + 95 -S3a2+ S5,- S303 =1
+o $3-Sja,+S3-Sja2+ S3-S3a3 =1
+3. Solvfor a1, a2, a3
+Solution: PracticTask Results
+Dot Products Calculation
+All dot products:
+S,-S,=2417+4+1°=6
+Si - Sj = 2(2)+1(-1) +1(1) =4
+S| - S3 = 2(4) +.1(0) +1(1) =9
+Sey — 22) ea
+S,-95=2?+(-17+1=6
+S3-S3 = 2(4) + (-1)(0) + 1(1) = 9
+53-9; = 4(2) + 0(1) +1(1) =9
+S3-S5 = 4(2) + 0(-1) + 1(1) =9
+$3-S,=¥404+7=17
+Solution: System of Equations
+Substituted Equations
+Equation 1:
+6a, + 4a + 9a3 = —1
+Equation 2:
+4a, + 6az2 + 9a3 =1
+Equation 3:
+9a; + 9a2+17a3 = 1
+Solution: Final Alpha Values
+Results
+After solving thsystem:
+ay= —2, a Dry a35— —0.5
+Retrieval-Augmented Generation (RAG)
+From Static Models to Knowledge-AwarAl Systems
+Conceptual Overview
+MachinLearning / Applied Al
+Why ArWTalking About RAG?
+Traditional ML / LLM Problems
+Models hallucinate
+Knowledgis static
+No awareness of your documents
+Cannot citsources
+Unsaffor legal, medical, policy use
+“Sounds confident” # “Correct”
+Real-World Question
+How do you build an Al system that:
+Answers only from trusted documents
+Does not makup facts
+Can bupdated without retraining
+Works for legal, policy, healthcardomains?
+ThIdea Behind RAG
+RAG = Search first, then generate
+Instead of asking an LLM to remember everything,
+wlet it:
+1. Find relevant information
+2. Answer using that information only
+What Is RAG?
+Definition
+Retrieval-Augmented Generation (RAG) is an architecturthat:
+Retrieves relevant documents from a knowledgbase
+Injects them into thprompt
+Generates an answer grounded in retrieved data
+High-Level RAG Architecture
+User Question
+Query Embedding
+Vector Database
+Top-K Relevant Chunks
+LargLanguagModel
+Grounded Answer
+Key Components of a RAG System
+Component Purpose
+Documents Sourcof truth
+Chunking Break largtext
+Embeddings Convert text > vectors
+Vector Databas| Similarity search
+LLM Generatfinal answer
+Rolof Data in RAG
+What Typof Data Works Best?
+Policies
+Y Laws & regulations
+Manuals & handbooks
+WY FAQs
+Research documents
+_ Livtransactional data
+- Rapidly changing numeric data
+~~ Raw tables without structure
+Why Chunking Is Necessary
+LLMs and vector models:
+Cannot process very largdocuments
+Need small, meaningful pieces
+Chunking helps:
+Preservcontext
+Improvretrieval accuracy
+Reduchallucinations
+What ArEmbeddings?
+Intuition (No Math)
+Embeddings convert text into numbers
+Similar meaning > similar vectors
+Enables semantic search
+Example:
+“Citizenship Act” = “Nationality Law”
+“Weather” + “Legal policy”
+Why Vector Databases?
+Traditional databases:
+Match exact keywords
+Vector databases:
+Match meaning
+Example:
+Query: “Who qualifies for citizenship?”
+Retrieved text:
+“Eligibility criteria for nationality...”
+WherthLLM Fits In
+Important rule:
+ThLLM does NOT know your documents
+It only:
+Reads retrieved chunks
+Combines them into natural language
+Follows strict instructions
+LLM = Writer, not sourcof truth
+Grounded (RAG) vs Ungrounded Al
+Ungrounded LLM RAG System
+Hallucinates Uses documents
+No citations Source-based
+Static Easily updated
+Risky Auditable
+ExamplUsCases
+Legal assistant
+Policy Q&A system
+University handbook bot
+Healthcarknowledgassistant
+Company internal documentation search
+When NOT to UsRAG
+If you need:
+Real-timcalculations
+Numerical forecasting
+Imaggeneration
+Transaction processing
+RAG is for knowledgretrieval, not reasoning alone.
+Key Takeaway
+RAG is a knowledge-grounded Al system which can "act" likchatbots
+It combines:
+ML
+Information Retrieval
+Databases
+APIs
+Prompt design
+What’s Coming Next
+Data preparation
+Chunking strategies
+Embeddings
+Vector databases
+Full RAG implementation
+FastAPI service
+Next class:
+Data & Chunking - wherRAG succeeds or fails
+Data for RAG Systems
+What Works, What Fails, and Why
+Retrieval-Augmented Generation (RAG)
+Why Data Matters MorThan thModel
+In RAG systems:
+Thmodel is useless without good data
+LLM does not “know” your documents
+Retrieval quality depends entirely on data quality
+Bad data — confident but wrong answers
+What Is “Good Data” for RAG?
+Good RAG data is:
+Text-heavy
+Knowledge-based
+Relatively stable
+Written for humans
+What wneed?
+Information someonwould normally read
+Data Types That Work Best
+Ideal Sources
+Policies & regulations
+Manuals & handbooks
+FAQs
+Legal documents
+Research papers
+Medical guidelines
+Thescontain explanations, definitions, and rules.
+Example: Good RAG Data
+University Handbook
+Admission rules
+Grading policies
+Attendancrequirements
+Legal Policy Document
+Eligibility criteria
+Rights and responsibilities
+Procedures
+Perfect Questions like:
+“Who is eligiblfor X?”
+“What happens if Y?”
+What Data Is BAD for RAG
+1. Tables Without Structure
+Raw tables
+Scanned tables
+CSV dumps with no explanation
+Why?
+No semantic meaning
+Poor chunking
+Weak retrieval
+Example: Bad TablData
+ID | Cod| Valu| Flag
+12 | A32|0.87|1
+LLM question:
+“What does A32 mean?”
+No explanation — no useful answer
+What Data Is BAD for RAG
+2. Constantly Changing Transactional Data
+Bank transactions
+Livsensor data
+Stock prices
+Attendanclogs
+Why?
+Needs real-timsystems
+RAG is static knowledgretrieval
+Leads to outdated answers
+Rulof Thumb
+If data changes:
+every second
+every minute
+every hour
+Don’t usRAG
+Mixed Data: BCareful
+Somdatasets contain:
+Text + tables
+Explanations + numbers
+Keep:
+Explanatory text
+Removor summarize:
+Raw numeric dumps
+ThRolof Data Cleaning
+BeforRAG, documents often contain:
+Headers & footers
+Pagnumbers
+Repeated titles
+OCR artifacts
+Watermarks
+Thespollutembeddings.
+Common Cleaning Issues
+ExamplOCR Noise
+GOVERNMENT OF NEPAL
+MINISTRY OF HOME AFFAIRS
+Vectors becommeaningless
+Retrieval quality drops
+What Should BRemoved?
+Removor clean:
+Pagnumbers
+Repeated headers/footers
+Tablof contents
+References (optional)
+Scanned artifacts
+Goal:
+Only meaningful content remains
+What Should BPreserved?
+Keep:
+Headings
+Section titles
+Definitions
+Lists and clauses
+Paragraph structure
+Thesimprove:
+Chunking
+Retrieval
+Answer quality
+Data Cleaning Pipelin(Conceptual)
+Raw Document
+Text Extraction
+dt
+NoisRemoval
+dt
+Clean Text
+Chunking
+Cleaning happens beforembeddings.
+Why Cleaning Affects Retrieval
+Embeddings treat all text as important.
+If noisexists:
+Noisgets embedded
+Noisgets retrieved
+LLM uses noisas context
+Garbagin > garbagout
+Practical Guidelines
+Beforusing any dataset for RAG, ask:
+Is this text meant to bread by humans?
+Does it explain something?
+Will this still bvalid next month?
+Can a paragraph answer a question?
+If yes > good RAG data.
+Key Takeaways
+RAG is data-first, not model-first
+Good documents matter morthan fancy LLMs
+Cleaning improves retrieval morthan tuning prompts
+Not all data belongs in a RAG system
+Chunking for RAG Systems
+Why It Exists, How It Works, and How It Breaks Everything
+Retrieval-Augmented Generation (RAG)
+Why Chunking?
+In RAG systems:
+Good chunking = good answers
+Bad chunking = hallucinations
+Chunking affects:
+Retrieval accuracy
+Context relevance
+Answer quality
+What Is Chunking?
+Chunking is thprocess of breaking largdocuments into small, meaningful pieces of text
+Each chunk becomes:
+Onembedding
+Onretrievablunit
+Why Chunking Exists?
+Documents artoo large
+LLM context window is limited
+Embeddings work best on small text
+Onbig document — poor retrieval
+What Happens Without Chunking?
+Imaginasking:
+“What is thattendancpolicy?”
+If thentirhandbook is onchunk:
+Similarity is diluted
+Retrieval is inaccurate
+Wrong context is sent to LLM
+Chunking as a Search Problem
+Think of chunking as:
+“How can | split text so that onchunk answers onquestion?”
+If a chunk can answer:
+exactly ontypof question
+That’s a good chunk.
+Chunk Size: Too Large
+Example
+Chunk = 3 pages of text
+Problems:
+Contains many topics
+Embedding becomes “average”
+Retrieval is vague
+LLM gets irrelevant context
+Chunk Size: Too Small
+Example
+Chunk = 1 sentence
+Problems:
+Loses context
+Definitions split from explanations
+Multiplchunks needed to answer onquestion
+Chunk Size: Just Right
+Rulof Thumb
+300-1000 characters
+Or 150-300 words
+Keep related ideas together
+Goal:
+Onchunk = onconcept
+Why Chunk Overlap Exists
+Problem Without Overlap
+If asentencis split:
+Half goes into chunk A
+Half into chunk B
+Meaning is lost.
+Chunk Overlap Explained
+Overlap means:
+Repeating somtext between chunks
+Example:
+Chunk 1: sentences 1-10
+Chunk 2: sentences 8-18
+This preserves context.
+Typical Overlap Values
+Chunk SizOverlap
+300 chars | 50-80
+600 chars | 100-150
+1000 chars | 150-200
+No overlap — fragilRAG.
+Heading-Based Chunking
+What It Is
+Split text by headings
+Keep sections together
+Example:
+AttendancPolicy
+(text...)
+Why Heading-Based Chunking Is Powerful
+Preserves structure
+Keeps definitions + rules together
+Matches how humans read documents
+Perfect for:
+Policies
+Manuals
+Handbooks
+Sentence-Based Chunking
+What It Is
+Split text sentencby sentence
+Group sentences until sizlimit
+Good for:
+Plain articles
+Blogs
+Unstructured text
+Heading vs Sentence-Based Chunking
+Heading-Based Sentence-Based
+Structured Flexible
+Clean retrieval Morgeneric
+Best for policies Best for articles
+Requires headings | No headings needed
+What Happens When Chunking Is Bad
+Answer mentions wrong section
+LLM mixes topics
+Retrieval returns unrelated chunks
+Hallucinations increase
+Real Examplof Bad Chunking
+Chunk contains:
+Attendancrules
+Grading system
+Exam policy
+Question:
+“What happens if | miss classes?”
+LLM answer:
+Mentions grading and exams
+Chunking Is NOT One-Size-Fits-All
+Chunking depends on:
+Document type
+Language
+Question style
+Domain (legal, medical, academic)
+Always test and adjust.
+How to Know Chunking Is Working
+Ask:
+Arretrieved chunks clearly relevant?
+Can onchunk answer thquestion?
+Do answers citcorrect sections?
+If yes > chunking is good.
+Key Takeaways
+Chunking is thfoundation of RAG
+Chunk sizbalances context and focus
+Overlap preserves meaning
+Headings makchunking smarter
+Bad chunking breaks everything
+What’s Next
+Embeddings
+What they represent
+Why similarity works
+How chunking affects embeddings
+Embeddings
+From Text to Meaningful Numbers
+Recap: Why Chunking Matters
+Beforembeddings, wsplit text into chunks because:
+Models havtoken limits
+Smaller chunks > morfocused meaning
+Better retrieval accuracy in search & RAG systems
+Now let's sehow chunks becomnumbers
+What Is an Embedding?
+An embedding is a numeric representation of meaning
+Text > Vector (list of numbers)
+Similar meanings > Similar vectors
+Different meanings — Distant vectors
+Computers don't understand words
+They understand numbers
+Exampl(Conceptual)
+Text chunks:
+tm Car needs fuel"
+Embeddings (simplified):
+Dog > 0.88, 0.31]
+Cat > @.85, 0.29]
+Car + [0.91, @.82, 0.77]
+Dog & Cat arclose
+Car is far away
+What Embeddings Actually Represent
+Each number in an embedding represents abstract features, like:
+Topic
+Context
+Intent
+Semantic meaning
+ThesarNOT human-readable
+You cannot say:
+“Dimension 57 = happiness”
+They work only in mathematical space
+Think of Embeddings as Coordinates
+Imagina meaning space:
+Every sentenc= a point
+Similar sentences = nearby points
+Different topics = far apart
+Lika map of meaning
+"MachinLearning basics"
+"Intro to Al" > close
+"Cooking pasta" — far
+What Happens After Embedding?
+Typical pipeline:
+1. Chunk text
+2. Convert chunks to embeddings
+3. Storembeddings in a vector database
+4. Embed user query
+5. Find most similar vectors
+6. Retrievmatching chunks
+This is thcorof semantic search
+Why Not ComparWords Directly?
+Keyword matching fails:
+"car" # "automobile"
+"Al" # "Artificial Intelligence"
+Embeddings capturmeaning, not spelling
+That’s why:
+“How to train a model” = “Steps for ML training”
+Measuring Similarity Between Embeddings
+Oncwhavvectors, wneed to answer:
+How similar arthestwo meanings?
+Common options:
+Euclidean distance
+Dot product
+Cosinsimilarity (most common)
+Why CosinSimilarity Works
+Cosinsimilarity measures:
+Anglbetween vectors, not distance
+Why this matters:
+Length of vector + importance
+Direction = meaning
+Samdirection > similar meaning
+Oppositdirection > very different meaning
+Visual Intuition
+Two vectors pointing thsamway — cosin= 1
+At 90° > cosin= 0
+Oppositdirection — cosin= -1
+In practice:
+Values closer to 1 = very similar
+Near 0 = unrelated
+CosinSimilarity (SimplFormula)
+cosine(A, B) = (A ~~ B) / (|A| x [BI)
+Libraries will handlthis for you
+What matters:
+Angl= meaning similarity
+Embedding Dimensions Explained
+Embedding dimension =
+How many numbers represent onchunk
+Common sizes:
+° 384
+768
+1536
+Each number adds morexpressivpower
+Think of Dimensions LikDetail Level
+Analogy: Imagresolution
+Dimensions LikMeaning
+384 Low-res imag| Fast, less detail
+768 HD imagBalanced
+1536 Ultra-HD High detail, slower
+384 Dimensions
+Very fast
+Low memory usage
+Less semantic nuance
+Good for:
+Small projects
+Fast search
+Prototypes
+Mobil/ edgsystems
+768 Dimensions
+Balanced accuracy
+Moderatspeed
+Most common choice
+Good for:
+Production RAG systems
+Knowledgbases
+Educational projects
+1536 Dimensions
+High semantic accuracy
+Slower search
+Morstoragrequired
+Good for:
+Legal documents
+Medical data
+Research papers
+Largenterprissystems
+Why thnumbers
+Model Embedding Dimension
+MiniLM 384
+BERT-bas768
+text-embedding-3-small Mmm sio)
+text-embedding-3-larg[aCLeyy4
+Word2Vec (classic) 100-300
+GloV50, 100, 200, 300
+Custom research models Any N
+Among these, 384, 768 and 1536 arwidely used
+Trade-Off: Speed vs Accuracy
+Factor Low Dimensions High Dimensions
+Speed Fast Slower
+Memory | Low High
+Accuracy | Medium High
+Cost Low Higher
+Theris no best size
+Only best for your uscase
+Practical Rulof Thumb
+Start with 768
+Optimizlater
+Increasonly if:
+°o Results feel vague
+© Meanings arvery subtle
+© Domain is complex
+Bigger # Always better
+Chunking + Embeddings Together
+Why both matter:
+Chunking controls context size
+Embeddings control semantic understanding
+Bad chunking — bad embeddings
+Good chunking — meaningful embeddings
+Common Beginner Mistakes
+Using very largchunks
+Assuming embeddings arinterpretable
+Choosing max dimensions blindly
+Using keyword search instead of semantic search
+Mental Model to Remember
+Chunking = What to read
+Embeddings = How meaning is stored
+Cosinsimilarity = How meaning is compared
+Dimensions = How detailed meaning is
+Upcoming Topics
+Vector databases
+Approximatnearest neighbor (ANN)
+RAG architecture
+Embedding models in practice
+Key Takeaways
+Embeddings turn text into numbers
+Similar meaning > similar vectors
+Cosinsimilarity compares direction
+Dimension sizaffects speed & accuracy
+Choosbased on uscase, not hype
+Vector Databases (for RAG)
+Thcorproblem RAG solves
+When a user asks a question, you want to fetch thmost relevant chunks from your knowledge
+base.
+Two big requirements:
+Semantic match (meaning, not exact keywords)
+Fast retrieval at scale
+Vector DBs arbuilt for this.
+What is a vector (embedding)?
+A chunk of text — converted into a list of numbers:
+Om embedding = 0.88, ...
+Each chunk becomes a point in a high-dimensional space
+Similar meaning — points arcloser
+Retrieval becomes: find nearest vectors to thquery vector.
+What is a Vector Database?
+A databasoptimized to storand query:
+Vectors (embeddings)
+IDs
+Metadata (JSON fields)
+Sometimes thraw text too
+Main feature:
+ANN search (ApproximatNearest Neighbors)
+Returns top-K most similar vectors quickly
+What vector search returns
+Given:
+* query embedding
+stored embeddings
+Vector search returns:
+° matches
+each with a similarity scor(cosin/ dot / L2)
+plus associated metadata + chunk text
+Why “Approximate” Nearest Neighbor?
+Exact nearest neighbor search is expensivat scale.
+Vector DBs usindexing structures:
+HNSW (graph-based)
+IVF (cluster-based)
+PQ (compression)
+Trade-off:
+Slight loss in recall
+Huggain in speed + cost
+Why not SQL?
+SQL is great for:
+Exact matches
+Rangqueries
+Joins
+Aggregations
+But SQL is NOT designed for:
+Finding th20 most semantically similar chunks to this sentence
+Efficient ANN indexes
+Similarity search over high-dimensional float arrays at scale
+What about PostgreSQL's pgvector
+True. You can do vector search in SQL using extensions (likpgvector).
+When it works well:
+Small/medium datasets
+You want strong relational joins + vectors
+You want fewer moving parts
+When dedicated vector DB wins:
+Very largscale
+Heavy ANN tuning
+High throughput retrieval
+Hybrid search + filtering performance
+What a typical RAG record looks like
+Each chunk you storusually needs:
+ER]: uniquchunk ID
+QASEe: embedding array
+RS: thactual chunk content
+GREE: fields for filtering + traceability
+Examplmetadata fields:
+° (pdf, web, doc)
+Ul page
+° (multi-user systems)
+Metadata storag(why it matters)
+Vector similarity alonis not enough.
+Metadata helps you:
+Filter to correct scop(e.g., a singlcours/ client)
+Maintain citations / provenanc(pagnumbers, URLs)
+Debug retrieval (“why did this chunk appear?”)
+Support access control (RBAC, per-user documents)
+In RAG, metadata is not optional.
+Filtering + retrieval (thcommon pattern)
+You rarely want:
+“Search across everything”
+You usually want:
+“Search within thright subset”
+Examples:
+* Only this user's docs:
+Only policies:
+Only recent docs:
+° Only relevant tags:
+So retrieval becomes:
+vector search + metadata filter
+Example: retrieval request (conceptual)
+Inputs:
+query text
+filter conditions
+top_k
+Process:
+1. Embed thquery > [J
+2. ANN search in vector index
+3. Apply metadata filters (pror post, depends on DB)
+4. Return top_k chunks + metadata
+Pre-filter vs Post-filter
+Two ways vector DBs handlfilters:
+Pre-filter (preferred)
+Apply metadata constraints during ANN search
+Faster and moraccuratfor constrained scopes
+Post-filter
+Search broadly first, then filter results
+Can miss good matches if filtered set is small
+For RAG with strict scopes (tenant/user), pre-filter matters.
+ThRAG pipelin(whervector DB fits)
+1. Ingest
+© load documents
+° clean text
+© chunk
+2. Embed
+© generatembeddings for each chunk
+3. Store
+© vector + text + metadata in vector DB
+4. Retrieve
+© embed query
+© search + filter
+5. Generate
+© send retrieved chunks to LLM with prompt + citations
+Chunking (required for good RAG)
+You do NOT embed wholPDFs.
+You embed chunks:
+200-800 tokens per chunk (common range)
+with overlap (e.g., 10-20%) to avoid cutting context
+Chunking must preserve:
+section headings
+paginfo
+document identity
+ordering info
+Bad chunking = bad retrieval.
+What “good retrieval” means
+A good retriever gets:
+relevant chunks (high precision)
+completcoverag(high recall)
+from thright scop(filters)
+with traceablsources (metadata)
+RAG quality is often bottlenecked by retrieval, not thLLM.
+Similarity metrics (quick)
+Common options:
+Cosinsimilarity: compares direction (common for normalized embeddings)
+Dot product: similar to cosinif vectors arnormalized
+L2 distance: Euclidean distance
+Most modern embedding workflows:
+normalizvectors
+uscosinor dot
+Hybrid search (very important for RAG)
+Vector search is semantic, but sometimes you need exact terms:
+names, IDs, error codes
+legal section numbers
+version strings
+Hybrid search = combine:
+keyword search (BM25)
+vector search
+Benefits:
+better for “needle” queries
+better for rarproper nouns
+better grounding for technical/legal RAG
+Re-ranking (often necessary)
+ANN gives you candidates, not perfect ordering.
+Common pattern:
+ME CcSa@ (Mem top_k = 50
+2. Re-rank with a stronger model (cross-encoder / LLM rerank)
+3. Keep top [aiminetemerea:)
+This usually boosts answer quality a lot.
+Storing text: in vector DB or elsewhere?
+Two approaches:
+Stortext in vector DB
+simpler system
+easy retrieval
+Stortext in object stor/ SQL
+vector DB stores only IDs + metadata
+fetch text by ID after retrieval
+Pick based on:
+scale
+cost
+system complexity
+Multi-tenant RAG (must-havin products)
+If many users upload documents:
+Always store:
+° (optional)
+access rules
+And always filter retrieval by tenant/user scope.
+If you don’t, you leak data across users.
+Versioning + updates
+Real systems havevolving docs.
+Plan for:
+“soft delete” old chunks
+re-embedding on model change
+rebuild indexes when needed
+Also store:
+embedding model namused (critical for migrations)
+What to log for debugging RAG
+At query time, log:
+query text
+filters applied
+retrieved chunk IDs + scores
+doc/page/section metadata
+final prompt context
+This is how you diagnose:
+wrong chunks
+missing chunks
+over-filtering
+noisy embeddings
+Common failurmodes
+No metadata — cannot filter properly
+Wrong chunk siz> either too vaguor too fragmented
+No hybrid > fails on exact identifiers
+Norerank — weak ordering
+No scopfilters cross-user leakage
+Poor ingestion > garbagin, garbagout
+Minimal “RAG-ready” vector DB checklist
+You should bablto do:
+Upsert vectors with metadata
+ANN search with top_k
+Metadata filtering (ideally pre-filter)
+Delet/ soft-deletby doc_id
+Multi-tenant isolation
+Optional: hybrid search + rerank support
+Summary
+Vector DB = storag+ fast similarity search for embeddings
+SQL is not optimized for high-dimensional ANN similarity search
+Metadata is required for filtering, traceability, and access control
+RAG quality improves with:
+° chunking + overlap
+© hybrid search
+° reranking
+© dedup/diversity
+© good logging
+LLM Foundations & RAG Architecture
+From Text Generation
+to
+Retrieval-Augmented Generation (RAG)
+Part 1
+What LLMs Actually Do
+What is a LargLanguagModel?
+An LLM is:
+A probabilistic next-token prediction engine
+It does not:
+Think
+Reason likhumans
+Know facts
+It predicts thmost likely next word.
+How LLMs GeneratText
+Input:
+Machinlearning is
+Model predicts:
+powerful
+transforming
+ea
+the
+Each word has a probability.
+Thhighest probability token is chosen (depending on decoding settings).
+LLM = Pattern Recognition at Scale
+During training:
+Trained on massivtext corpora
+Learns statistical patterns
+Learns structurof language
+Learns relationships between words
+It compresses languagpatterns into billions of parameters.
+Important Reality
+LLMs do not storknowledglikdatabases.
+They store:
+Statistical relationships
+Semantic associations
+Pattern likelihoods
+They generatanswers.
+They do not retrievfacts.
+Tokenization
+Befortext goes into an LLM:
+Text - Tokens ~ Numbers
+Example:
+Machinlearning is powerful
+Might become:
+[1234, 5821, 98, 4411]
+A token is not always a word.
+It can be:
+Part of a word
+A full word
+Punctuation
+Why Tokenization Matters
+Because:
+Cost depends on number of tokens
+Context window depends on tokens
+Truncation happens at token level
+Prompt engineering depends on token limits
+Tokens arthreal currency.
+Context Window
+Thcontext window is:
+Thmaximum number of tokens thmodel can seat once
+Includes:
+System prompt
+User query
+Retrieved documents
+Model response
+If exceeded:
+Old tokens get truncated.
+Why Context Window Is Critical for RAG
+If you retrievtoo many chunks:
+You exceed context window
+Important info gets cut
+Answers degrade
+Retrieval must bcontrolled.
+Hallucination
+Hallucination = Model generates confident but incorrect information.
+Why it happens:
+Model predicts probabltext
+It fills gaps statistically
+It does not verify truth
+Example:
+Model invents citations.
+Model fabricates facts.
+Why LLM AlonIs Not Enough
+Problems:
+No access to privatdata
+Knowledgcutoff
+Hallucination risk
+Cannot search databases
+Cannot access livinformation
+Solution?
+Why RAG Exists
+RAG = Retrieval-Augmented Generation
+Instead of asking LLM:
+"Answer from your memory"
+Wsay:
+"Answer using thesdocuments"
+Winject retrieved knowledginto thprompt.
+RAG ArchitecturDeep Dive
+RAG Full Pipeline
+User Query
+— Embed query
+— Search vector DB
+— Retrievtop-k chunks
+— Inject into prompt
+— LLM generates grounded answer
+Step 1: Query Embedding
+User question:
+What aradmission requirements?
+Wconvert it into a vector.
+Then comparit against stored document vectors.
+Similarity search begins.
+Step 2: Top-k Selection
+Wretrieve:
+Top 3
+Top 5
+Top 10
+Most similar chunks.
+Trade-off:
+Too small > Missing context
+Too larg~ Nois+ token overflow
+Choosing k is critical.
+Step 3: Metadata Filtering
+Vector similarity alonis not enough.
+Wcan filter by:
+Document type
+Year
+Department
+Category
+Author
+Language
+Example:
+Only search in:
+"Policy documents from 2024"
+Hybrid filtering improves precision.
+Step 4: Prompt Construction
+Wbuild a structured prompt:
+System:
+"You aran assistant. Usonly provided context."
+Context:
+[Chunk 1]
+[Chunk 2]
+[Chunk 3]
+User:
+"What aradmission requirements?"
+This is grounding.
+Step 5: Query Rewriting
+Sometimes user queries arvague.
+Example:
+"Tell mabout fees"
+Rewritto:
+"What arthtuition fees for undergraduatprograms in 2025?"
+Rewriting improves retrieval quality.
+Methods:
+LLM-based rewriting
+Rule-based expansion
+Keyword expansion
+Step 6: Re-ranking
+After retrieving top-k:
+Wcan:
+Re-scorusing a cross-encoder
+UsLLM to re-rank
+Combinkeyword + vector scoring
+Re-ranking improves precision beforgeneration.
+User
+Query Processing
+Embedding
+Vector Search
+Filtering
+Re-ranking
+Prompt Construction
+LLM
+Final Answer
+Full RAG System Architecture
+Common RAG FailurPoints
+Poor chunking
+Too largchunk size
+Bad top-k selection
+No metadata filtering
+Context window overflow
+Weak prompt structure
+High temperature
+Key Insight
+LLM = Generator
+Vector DB = Retriever
+RAG = Controlled KnowledgInjection
+ExamplScenario
+Data Source:
+CollegHandbook (PDF > Chunked ~ Embedded > Stored in Vector DB)
+Step 1 - User Asks a VaguQuestion
+User Query:
+"Tell mabout fees"
+Problem:
+Which program?
+Domestic or international?
+Undergraduator postgraduate?
+Tuition or other fees?
+Which year?
+This is vague.
+Step 2 - Query Rewriting (LLM Comes Into Play)
+WusthLLM to clarify intent beforretrieval.
+System Prompt:
+You ara query rewriting assistant.
+Your task is to rewritvaguor ambiguous student questions into
+clear, specific, and searchablacademic queries.
+Rules:
+Default to thcurrent academic year unless specified.
+Default to domestic students unless specified.
+Assumundergraduatlevel unless stated otherwise.
+Do NOT answer thquestion.
+Output only threwritten query.
+Do not add explanations.
+User:
+"Tell mabout fees"
+LLM Output (Rewritten Query)
+"What arthtuition fees for undergraduatprograms for domestic students in 2025?"
+Now thquery is structured and specific.
+This improves retrieval quality.
+Step 3 - Embedding & Vector Search
+Rewritten Query ~ Embedding — Vector DB search
+WretrievTop-3 most similar chunks.
+Examplretrieved chunks:
+Chunk 1:
+"Undergraduatdomestic tuition fees for 2025 ar$8,500 per year..."
+Chunk 2:
+"Additional student services fee: $450 per semester..."
+Chunk 3:
+"International undergraduattuition fees for 2025 ar$14,000..."
+Step 4 - Metadata Filtering
+Wfilter:
+Program Level = Undergraduate
+Student Typ= Domestic
+Year = 2025
+Chunk 3 is removed (international).
+Now only relevant chunks remain.
+Step 5 - Final Answer Generation
+Now thLLM generates thfinal answer.
+Final System Prompt
+"You ara university assistant.
+Answer ONLY using thprovided context.
+If thanswer is not in thcontext, say:
+‘Thinformation is not availablin thhandbook.’
+Do not add external knowledge.
+Bconcisand structured."
+Prompt Sent to LLM
+System:
+(abovsystem prompt)
+Context:
+"Undergraduatdomestic tuition fees for 2025 ar$8,500 per year.
+Additional student services fee: $450 per semester."
+User:
+"What arthtuition fees for undergraduatprograms for domestic students in 2025?"
+LLM Final Output
+"For 2025, undergraduattuition fees for domestic students ar$8,500 per year.
+In addition, a student services feof $450 per semester applies."
+What Just Happened?
+1. User asked vaguquestion.
+2. LLM rewrotthquery.
+3. Query embedded.
+4. Vector search performed.
+5. Metadata filtering applied.
+6. Context injected into prompt.
+7. LLM generated grounded answer.
+WherLLM Was Used
+1. Query Rewriting
+2. Final Answer Generation
+Vector DB handled retrieval.
+LLM handled languag+ reasoning.
+Why This Matters
+Without RAG:
+LLM might hallucinatoutdated fees.
+With RAG:
+Answer is grounded in handbook data.
+This is controlled generation.

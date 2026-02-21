@@ -1,125 +1,150 @@
 import os
-import pickle
-import faiss
-
-from sentence_transformers import CrossEncoder
+from dotenv import load_dotenv
 from groq import Groq
+from src.retriever import retrieve
+from src.reranker import rerank
+from src.memory import Memory
 
-from .config import *
-from .loader import load_slides
-from .embedder import create_embedder, embed
-from .search import build_index
+load_dotenv()
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+memory = Memory()
 
+SYSTEM = """
+You are a professional Machine Learning tutor.
 
-DB_INDEX = "database/faiss.index"
-DB_META = "database/metadata.pkl"
+RULES:
 
-
-print("Loading embedding model...")
-embed_model = create_embedder()
-
-
-def build_and_save():
-
-    print("Loading slides from PPT files...")
-    documents, metadata = load_slides()
-
-    if len(documents) == 0:
-        raise Exception("NO SLIDES FOUND — check your data/week folders")
-
-    print(f"Slides loaded: {len(documents)}")
-
-    print("Embedding slides...")
-    embeddings = embed(embed_model, documents)
-
-    print("Building FAISS index...")
-    index = build_index(embeddings)
-
-    print("Saving database...")
-
-    os.makedirs("database", exist_ok=True)
-
-    faiss.write_index(index, DB_INDEX)
-
-    with open(DB_META, "wb") as f:
-        pickle.dump((documents, metadata), f)
-
-    print("Database saved.")
-
-    return index, documents, metadata
+1. First check if STUDY MATERIAL contains relevant info.
+2. If yes:
+   - Use study material as the main source
+   - You may use your knowledge to improve explanation
+   - Give a clear structured teaching-style answer.
+3. If NOT:
+   reply EXACTLY:
+   The question is not in the study material.
+4. Never mention file names, pages, or context blocks.
+5. Always explain clearly for students.
+"""
 
 
-# SAFE LOAD OR BUILD
-
-if (
-    os.path.exists(DB_INDEX)
-    and os.path.exists(DB_META)
-    and os.path.getsize(DB_INDEX) > 1000
-):
-
-    try:
-        print("Loading saved FAISS database...")
-
-        index = faiss.read_index(DB_INDEX)
-
-        with open(DB_META, "rb") as f:
-            documents, metadata = pickle.load(f)
-
-    except:
-        print("Database corrupted → rebuilding")
-        index, documents, metadata = build_and_save()
-
-else:
-
-    print("No valid database found → building new one")
-    index, documents, metadata = build_and_save()
+# ----------------------------
+# CLEAN OCR NOISE
+# ----------------------------
+def clean_chunks(docs):
+    out=[]
+    for d in docs:
+        d=d.replace("FILE:","")
+        d=d.replace("PAGE:","")
+        d=d.replace("==============================","")
+        d=d.replace("====","")
+        out.append(d.strip())
+    return out
 
 
-print("Loading reranker...")
-reranker = CrossEncoder(RERANK_MODEL)
+# ----------------------------
+# SIMPLE CONFIDENCE CHECK
+# ----------------------------
+def context_strength(docs):
 
-print("Connecting to Groq...")
-client = Groq(api_key=GROQ_API_KEY)
+    if not docs:
+        return 0
+
+    total=0
+    for d in docs[:3]:
+        total+=len(d.split())
+
+    return total
 
 
-def ask(question):
+# ----------------------------
+# FINAL ASK FUNCTION
+# ----------------------------
+def ask(question,debug=False):
 
-    q_emb = embed(embed_model, [question])
+    # ----------------------------
+    # INPUT SAFETY
+    # ----------------------------
+    if not question or not question.strip():
+        return "Please ask a valid question."
 
-    D, I = index.search(q_emb, TOP_K)
+    if len(question) > 600:
+        return "Question too long."
 
-    retrieved = [documents[i] for i in I[0]]
+    # ----------------------------
+    # RETRIEVE
+    # ----------------------------
+    docs = retrieve(question)
 
-    pairs = [[question, doc] for doc in retrieved]
+    if not docs:
+        return "The question is not in the study material."
 
-    # DISABLE batch progress bar
-    scores = reranker.predict(pairs, show_progress_bar=False)
+    docs = rerank(question,docs)
 
-    ranked = sorted(
-        zip(retrieved, scores),
-        key=lambda x: x[1],
-        reverse=True
-    )
+    # ----------------------------
+    # CONTEXT QUALITY CHECK
+    # ----------------------------
+    strength=context_strength(docs)
 
-    best = [r[0] for r in ranked[:FINAL_K]]
+    # If retrieved text too small → reject
+    if strength < 60:
+        return "The question is not in the study material."
 
-    context = "\n\n".join(best)
+    # ----------------------------
+    # ADAPTIVE CHUNK COUNT
+    # ----------------------------
+    if strength > 400:
+        use_k=5
+    elif strength > 200:
+        use_k=4
+    else:
+        use_k=3
 
-    completion = client.chat.completions.create(
+    docs = clean_chunks(docs[:use_k])
+    context="\n\n".join(docs)
+
+    # ----------------------------
+    # CHAT MEMORY
+    # ----------------------------
+    history=memory.format()
+
+    prompt=f"""
+CHAT HISTORY:
+{history}
+
+STUDY MATERIAL:
+{context}
+
+QUESTION:
+{question}
+
+Give the BEST clear student-friendly explanation.
+"""
+
+    # ----------------------------
+    # LLM CALL
+    # ----------------------------
+    r=client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[
-            {
-                "role": "system",
-                "content":
-                "Answer from lecture notes first. "
-                "If notes do not contain the answer, use general knowledge."
-            },
-            {
-                "role": "user",
-                "content": f"CONTEXT:\n{context}\n\nQUESTION:{question}"
-            }
+            {"role":"system","content":SYSTEM},
+            {"role":"user","content":prompt}
         ],
-        temperature=0.2
+        temperature=0.25
     )
 
-    return completion.choices[0].message.content
+    answer=r.choices[0].message.content.strip()
+
+    memory.add(question,answer)
+
+    # ----------------------------
+    # DEBUG MODE
+    # ----------------------------
+    if debug:
+
+        print("\n--- RETRIEVAL STRENGTH:",strength,"---")
+
+        print("\n--- USED CHUNKS ---")
+        for i,c in enumerate(docs):
+            print(f"\nChunk {i+1}:\n{c[:400]}")
+
+    return answer
