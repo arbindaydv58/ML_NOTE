@@ -1,4 +1,5 @@
 import os
+import time
 from dotenv import load_dotenv
 from groq import Groq
 from src.retriever import retrieve
@@ -6,73 +7,86 @@ from src.reranker import rerank
 from src.memory import Memory
 
 load_dotenv()
+
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 memory = Memory()
+
 
 SYSTEM = """
 You are a professional Machine Learning tutor.
 
-RULES:
-
-1. First check if STUDY MATERIAL contains relevant info.
-2. If yes:
-   - Use study material as the main source
-   - You may use your knowledge to improve explanation
-   - Give a clear structured teaching-style answer.
-3. If NOT:
-   reply EXACTLY:
-   The question is not in the study material.
-4. Never mention file names, pages, or context blocks.
-5. Always explain clearly for students.
+STRICT RULES (MANDATORY):
+1. Answer ONLY from STUDY MATERIAL provided in the prompt.
+2. Do NOT use outside knowledge, assumptions, or prior model knowledge.
+3. If STUDY MATERIAL is missing, weak, or does not contain the answer, reply EXACTLY:
+The question is not in the study material.
+4. Never mention file names, pages, retrieval, chunks, or context blocks.
+5. Keep answers clear, structured, and student-friendly.
 """
 
 
-# ----------------------------
-# CLEAN OCR NOISE
-# ----------------------------
+# -----------------------------
+# CLEAN OCR GARBAGE
+# -----------------------------
 def clean_chunks(docs):
-    out=[]
+
+    cleaned=[]
+
     for d in docs:
+
         d=d.replace("FILE:","")
         d=d.replace("PAGE:","")
         d=d.replace("==============================","")
         d=d.replace("====","")
-        out.append(d.strip())
-    return out
+
+        cleaned.append(d.strip())
+
+    return cleaned
 
 
-# ----------------------------
-# SIMPLE CONFIDENCE CHECK
-# ----------------------------
-def context_strength(docs):
+# -----------------------------
+# CONFIDENCE CALCULATION
+# -----------------------------
+def calc_confidence(docs):
 
     if not docs:
         return 0
 
-    total=0
-    for d in docs[:3]:
-        total+=len(d.split())
+    words=sum(len(d.split()) for d in docs[:3])
 
-    return total
+    if words>800: return 95
+    if words>500: return 88
+    if words>300: return 80
+    if words>150: return 70
+    if words>80:  return 60
+    return 40
 
 
-# ----------------------------
-# FINAL ASK FUNCTION
-# ----------------------------
+# -----------------------------
+# STREAM OUTPUT 
+# -----------------------------
+def stream(text):
+
+    for ch in text:
+        print(ch,end="",flush=True)
+        time.sleep(0.01)
+
+    print()
+
+
+# -----------------------------
+# MAIN ASK FUNCTION
+# -----------------------------
 def ask(question,debug=False):
 
-    # ----------------------------
-    # INPUT SAFETY
-    # ----------------------------
+    # ---------- INPUT VALIDATION ----------
     if not question or not question.strip():
         return "Please ask a valid question."
 
-    if len(question) > 600:
+    if len(question)>600:
         return "Question too long."
 
-    # ----------------------------
-    # RETRIEVE
-    # ----------------------------
+    # ---------- RETRIEVE ----------
     docs = retrieve(question)
 
     if not docs:
@@ -80,31 +94,25 @@ def ask(question,debug=False):
 
     docs = rerank(question,docs)
 
-    # ----------------------------
-    # CONTEXT QUALITY CHECK
-    # ----------------------------
-    strength=context_strength(docs)
+    # ---------- CONTEXT QUALITY ----------
+    strength=sum(len(d.split()) for d in docs[:3])
 
-    # If retrieved text too small → reject
-    if strength < 60:
+    if strength<60:
         return "The question is not in the study material."
 
-    # ----------------------------
-    # ADAPTIVE CHUNK COUNT
-    # ----------------------------
-    if strength > 400:
+    # ---------- ADAPTIVE CONTEXT SIZE ----------
+    if strength>500:
         use_k=5
-    elif strength > 200:
+    elif strength>250:
         use_k=4
     else:
         use_k=3
 
-    docs = clean_chunks(docs[:use_k])
+    docs=clean_chunks(docs[:use_k])
+
     context="\n\n".join(docs)
 
-    # ----------------------------
-    # CHAT MEMORY
-    # ----------------------------
+    # ---------- MEMORY ----------
     history=memory.format()
 
     prompt=f"""
@@ -117,34 +125,36 @@ STUDY MATERIAL:
 QUESTION:
 {question}
 
-Give the BEST clear student-friendly explanation.
+Give the BEST clear structured student-friendly explanation.
 """
 
-    # ----------------------------
-    # LLM CALL
-    # ----------------------------
+    # ---------- LLM ----------
     r=client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[
             {"role":"system","content":SYSTEM},
             {"role":"user","content":prompt}
         ],
-        temperature=0.25
+        temperature=0.0
     )
 
     answer=r.choices[0].message.content.strip()
 
     memory.add(question,answer)
 
-    # ----------------------------
-    # DEBUG MODE
-    # ----------------------------
+    confidence=calc_confidence(docs)
+
+    # ---------- DEBUG ----------
     if debug:
 
-        print("\n--- RETRIEVAL STRENGTH:",strength,"---")
+        print("\n--- RETRIEVAL WORDS:",strength,"---")
 
-        print("\n--- USED CHUNKS ---")
         for i,c in enumerate(docs):
-            print(f"\nChunk {i+1}:\n{c[:400]}")
+            print(f"\nChunk {i+1}:\n{c[:350]}")
 
-    return answer
+    # ---------- STREAM OUTPUT ----------
+    stream(answer)
+
+    print(f"\nConfidence: {confidence}%")
+
+    return ""
