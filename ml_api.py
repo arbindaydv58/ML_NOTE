@@ -1,8 +1,3 @@
-# ==========================================
-# ELITE RAG API (INDUSTRY STYLE)
-# Streaming + Semantic Cache + Memory + DB rebuild
-# ==========================================
-
 import os, pickle, faiss
 from typing import Dict
 from fastapi import FastAPI, HTTPException
