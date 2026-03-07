@@ -1,5 +1,6 @@
 import os, pickle, faiss
-from typing import Dict
+import re
+from collections import OrderedDict
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import StreamingResponse
 from dotenv import load_dotenv
@@ -19,6 +20,10 @@ client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 MODEL="all-MiniLM-L6-v2"
 DB_INDEX="database/faiss.index"
 DB_META="database/meta.pkl"
+FALLBACK="The question is not in the study material."
+
+MAX_CACHE_ITEMS = 200
+MAX_SESSIONS = 200
 
 app = FastAPI(title="ELITE RAG API")
 
@@ -44,9 +49,9 @@ embed = SentenceTransformer(MODEL)
 index=None
 meta=None
 
-cache={}                 # answer cache
-cache_vectors={}         # semantic cache vectors
-sessions={}              # chat memory
+cache=OrderedDict()         # answer cache
+cache_vectors=OrderedDict() # semantic cache vectors
+sessions=OrderedDict()      # chat memory
 
 
 # ==========================================
@@ -57,6 +62,16 @@ def reset_runtime_state():
     cache.clear()
     cache_vectors.clear()
     sessions.clear()
+
+
+def _bounded_set(store: OrderedDict, key, value, max_items: int):
+    if key in store:
+        store.pop(key)
+
+    store[key] = value
+
+    while len(store) > max_items:
+        store.popitem(last=False)
 
 
 # ==========================================
@@ -86,27 +101,29 @@ def retrieve(q,k=None):
         else:k=7
 
     vec=embed.encode([q],normalize_embeddings=True)
-    D,I=index.search(vec,k)
+    _,I=index.search(vec,k)
 
     return [meta[i] for i in I[0]], vec
 
 
-# ==========================================
-# CONFIDENCE (BETTER)
-# ==========================================
+def is_grounded(answer, docs):
+    if not answer:
+        return False
 
-def confidence(docs):
+    if answer.strip() == FALLBACK:
+        return True
 
-    if not docs:
-        return 0
+    context = " ".join(docs).lower()
+    answer_tokens = re.findall(r"[a-zA-Z0-9]{4,}", answer.lower())
 
-    base=sum(len(d.split()) for d in docs[:3])
+    if not answer_tokens:
+        return False
 
-    if base>600:return 95
-    if base>400:return 88
-    if base>250:return 78
-    if base>120:return 65
-    return 50
+    unique_tokens = set(answer_tokens)
+    hits = sum(1 for t in unique_tokens if t in context)
+    ratio = hits / max(1, len(unique_tokens))
+
+    return ratio >= 0.35
 
 
 # ==========================================
@@ -146,10 +163,13 @@ def ask_stream(question:str, session:str="default"):
     # ------------------------------
     vec=embed.encode([question],normalize_embeddings=True)
 
-    for old_q,old_v in cache_vectors.items():
+    for old_q,old_v in list(cache_vectors.items()):
         score=(vec@old_v.T)[0][0]
         if score>0.92:
-            return StreamingResponse(iter([cache[old_q]]))
+            # LRU behavior: recent hit moves to end.
+            cache_vectors.move_to_end(old_q)
+            cache.move_to_end(old_q)
+            return StreamingResponse(iter([cache[old_q]]), media_type="text/plain")
 
     # ------------------------------
     # RETRIEVE
@@ -157,15 +177,17 @@ def ask_stream(question:str, session:str="default"):
     docs,vec=retrieve(question)
 
     if not docs:
-        return StreamingResponse(iter(["The question is not in the study material."]))
+        return StreamingResponse(iter([FALLBACK]), media_type="text/plain")
 
     # hallucination guard
     if sum(len(d.split()) for d in docs)<80:
-        return StreamingResponse(iter(["The question is not in the study material."]))
+        return StreamingResponse(iter([FALLBACK]), media_type="text/plain")
 
     context="\n\n".join(docs[:4])
 
     history=sessions.get(session,"")
+    if session in sessions:
+        sessions.move_to_end(session)
 
     prompt=f"""
 CHAT HISTORY:
@@ -185,24 +207,19 @@ Give best student-friendly explanation.
     # ------------------------------
     def generator():
 
-        full=""
-
-        # heartbeat prevents frontend freeze
-        yield ""
-
-        for token in stream_answer(prompt):
-            full+=token
-            yield token
+        full="".join(stream_answer(prompt))
+        if not is_grounded(full, docs):
+            full = FALLBACK
 
         # save semantic cache
-        cache[question]=full
-        cache_vectors[question]=vec
+        _bounded_set(cache, question, full, MAX_CACHE_ITEMS)
+        _bounded_set(cache_vectors, question, vec, MAX_CACHE_ITEMS)
 
         # save trimmed session memory
-        sessions[session]=(history+f"\nUser:{question}\nBot:{full}\n")[-6000:]
+        updated_history = (history+f"\nUser:{question}\nBot:{full}\n")[-6000:]
+        _bounded_set(sessions, session, updated_history, MAX_SESSIONS)
 
-        conf=confidence(docs)
-        yield f"\n\n[Confidence: {conf}%]"
+        yield full
 
     return StreamingResponse(generator(),media_type="text/plain")
 

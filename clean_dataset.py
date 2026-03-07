@@ -1,10 +1,13 @@
 import re
+from pathlib import Path
 
-INPUT = "all_weeks.txt"
-OUTPUT = "clean_ml_notes.txt"
+INPUT = Path("data/all_weeks.txt")
+OUTPUT = Path("data/clean_ml_notes.txt")
 
-with open(INPUT, "r", encoding="utf-8") as f:
-    text = f.read()
+if not INPUT.exists():
+    raise FileNotFoundError(f"Input file not found: {INPUT}")
+
+text = INPUT.read_text(encoding="utf-8")
 
 # -----------------------------
 # 1. Remove FILE/PAGE blocks
@@ -19,10 +22,8 @@ text = re.sub(r"\S+@\S+", "", text)
 # -----------------------------
 # 3. Remove bullet garbage from OCR
 # -----------------------------
-text = text.replace("¢", "")
-text = text.replace("●", "")
-text = text.replace("e ", "")
-text = text.replace("•", "")
+# Remove common bullet-like symbols produced by OCR.
+text = re.sub(r"[•●▪◦]+", " ", text)
 
 # -----------------------------
 # 4. Fix multiple blank lines
@@ -48,7 +49,6 @@ text = re.sub(r"[ \t]+", " ", text)
 # -----------------------------
 # 7. Save clean dataset
 # -----------------------------
-with open(OUTPUT, "w", encoding="utf-8") as f:
-    f.write(text)
+OUTPUT.write_text(text, encoding="utf-8")
 
-print("CLEAN DATASET SAVED →", OUTPUT)
+print("CLEAN DATASET SAVED ->", OUTPUT)

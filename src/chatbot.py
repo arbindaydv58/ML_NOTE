@@ -1,9 +1,10 @@
 import os
+import re
 import time
 from dotenv import load_dotenv
 from groq import Groq
-from src.retriever import retrieve
-from src.reranker import rerank
+from src.retriever import retrieve, warmup_retriever
+from src.reranker import rerank, warmup_reranker
 from src.memory import Memory
 
 load_dotenv()
@@ -44,22 +45,32 @@ def clean_chunks(docs):
     return cleaned
 
 
-# -----------------------------
-# CONFIDENCE CALCULATION
-# -----------------------------
-def calc_confidence(docs):
+FALLBACK = "The question is not in the study material."
 
-    if not docs:
-        return 0
 
-    words=sum(len(d.split()) for d in docs[:3])
+def warmup_models():
+    warmup_retriever()
+    warmup_reranker()
 
-    if words>800: return 95
-    if words>500: return 88
-    if words>300: return 80
-    if words>150: return 70
-    if words>80:  return 60
-    return 40
+
+def is_grounded(answer, docs):
+    if not answer:
+        return False
+
+    if answer.strip() == FALLBACK:
+        return True
+
+    context = " ".join(docs).lower()
+    answer_tokens = re.findall(r"[a-zA-Z0-9]{4,}", answer.lower())
+
+    if not answer_tokens:
+        return False
+
+    unique_tokens = set(answer_tokens)
+    hits = sum(1 for t in unique_tokens if t in context)
+    ratio = hits / max(1, len(unique_tokens))
+
+    return ratio >= 0.35
 
 
 # -----------------------------
@@ -140,9 +151,10 @@ Give the BEST clear structured student-friendly explanation.
 
     answer=r.choices[0].message.content.strip()
 
-    memory.add(question,answer)
+    if not is_grounded(answer, docs):
+        answer = FALLBACK
 
-    confidence=calc_confidence(docs)
+    memory.add(question,answer)
 
     # ---------- DEBUG ----------
     if debug:
@@ -154,7 +166,5 @@ Give the BEST clear structured student-friendly explanation.
 
     # ---------- STREAM OUTPUT ----------
     stream(answer)
-
-    print(f"\nConfidence: {confidence}%")
 
     return ""

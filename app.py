@@ -1,4 +1,7 @@
-from src.chatbot import ask
+from src.chatbot import ask, warmup_models
+
+print("Warming up models...")
+warmup_models()
 
 print("""
 =========================================

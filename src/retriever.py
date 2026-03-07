@@ -1,25 +1,50 @@
-import os, faiss, pickle
+import os
+import pickle
+
+import faiss
 from sentence_transformers import SentenceTransformer
 
-# ---- LOAD MODEL ONLY ONCE ----
-print("Loading embedding model (first time may download)...")
-model = SentenceTransformer("all-MiniLM-L6-v2")
+MODEL_NAME = "all-MiniLM-L6-v2"
+INDEX_PATH = "database/faiss.index"
+META_PATH = "database/meta.pkl"
 
-# ---- CHECK DATABASE ----
-if not os.path.exists("database/faiss.index"):
-    raise RuntimeError("FAISS index missing. Run: python -m src.build_db")
+_model = None
+_index = None
+_chunks = None
 
-index = faiss.read_index("database/faiss.index")
-chunks = pickle.load(open("database/meta.pkl","rb"))
 
-print("Retriever ready:", len(chunks), "chunks")
+def _load_assets():
+    global _model, _index, _chunks
+
+    if _model is None:
+        print("Loading embedding model (first time may download)...")
+        _model = SentenceTransformer(MODEL_NAME)
+
+    if _index is None or _chunks is None:
+        if not os.path.exists(INDEX_PATH):
+            raise RuntimeError("FAISS index missing. Run: python -m src.build_db")
+
+        _index = faiss.read_index(INDEX_PATH)
+        _chunks = pickle.load(open(META_PATH, "rb"))
+        print("Retriever ready:", len(_chunks), "chunks")
+
+
+def warmup_retriever():
+    _load_assets()
+
 
 def retrieve(query, k=15):
-
-    if not query.strip():
+    if not query or not query.strip():
         return []
 
-    vec = model.encode([query], normalize_embeddings=True)
-    _, ids = index.search(vec, k)
+    _load_assets()
 
-    return [chunks[i] for i in ids[0] if i < len(chunks)]
+    if not _chunks:
+        return []
+
+    k = max(1, min(k, len(_chunks)))
+
+    vec = _model.encode([query], normalize_embeddings=True)
+    _, ids = _index.search(vec, k)
+
+    return [_chunks[i] for i in ids[0] if i < len(_chunks)]
