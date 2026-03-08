@@ -41,7 +41,15 @@ STREAM_DELAY = 0.03
 # FASTAPI SETUP
 # ==========================================
 
+# ==========================================
+# FASTAPI SETUP
+# ==========================================
+
 app = FastAPI(title="ELITE RAG API")
+
+@app.on_event("startup")
+def startup_event():
+    load_db()
 
 app.add_middleware(
     CORSMiddleware,
