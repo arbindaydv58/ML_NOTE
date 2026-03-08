@@ -45,11 +45,20 @@ app = FastAPI(title="ELITE RAG API")
 
 @app.on_event("startup")
 def startup_event():
+
+    global embed
+
+    print("Server starting...")
+
     try:
+        embed = SentenceTransformer(MODEL)
+        print("Embedding model loaded")
+
         load_db()
         print("FAISS database loaded")
+
     except Exception as e:
-        print("Database loading failed:", e)
+        print("Startup error:", e)
 
 app.add_middleware(
     CORSMiddleware,
@@ -81,7 +90,7 @@ The question is not in the study material.
 # GLOBAL OBJECTS
 # ==========================================
 
-embed = SentenceTransformer(MODEL)
+embed = None
 
 index = None
 meta = None
