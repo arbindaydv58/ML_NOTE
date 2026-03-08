@@ -39,17 +39,17 @@ STREAM_DELAY = 0.03
 
 # ==========================================
 # FASTAPI SETUP
-# ==========================================
-
-# ==========================================
-# FASTAPI SETUP
-# ==========================================
+# =========================================
 
 app = FastAPI(title="ELITE RAG API")
 
 @app.on_event("startup")
 def startup_event():
-    load_db()
+    try:
+        load_db()
+        print("FAISS database loaded")
+    except Exception as e:
+        print("Database loading failed:", e)
 
 app.add_middleware(
     CORSMiddleware,
@@ -124,9 +124,6 @@ def load_db():
     meta = pickle.load(open(DB_META, "rb"))
 
     reset_runtime_state()
-
-
-load_db()
 
 
 # ==========================================
